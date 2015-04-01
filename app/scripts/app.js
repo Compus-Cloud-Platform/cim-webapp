@@ -8,26 +8,23 @@
  *
  * Main module of the application.
  */
-angular
-  .module('Site', [
-    'ngAnimate',
-    'ngCookies',
-    'ngResource',
-    'ngRoute',
-    'ngSanitize',
-    'ngTouch'
-  ])
-  .config(function ($routeProvider) {
-    $routeProvider
-      .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl'
-      })
-      .when('/about', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl'
-      })
-      .otherwise({
-        redirectTo: '/'
-      });
+var Site = angular.module('Site', [
+  'ngAnimate',
+  'ngCookies',
+  'ngResource',
+  'ngRoute',
+  'ngSanitize',
+  'ngTouch',
+  'ui.router'
+]);
+
+Site.config(
+  function ($stateProvider, $urlRouterProvider) {
+    "use strict";
+
+    $stateProvider
+      .state('home', {url: '/home', templateUrl: 'views/main.html', controller: 'MainCtrl'})
+      .state('about', {url: '/about', templateUrl: 'views/about.html', controller: 'AboutCtrl'});
+    $urlRouterProvider.otherwise('/home');
+
   });
