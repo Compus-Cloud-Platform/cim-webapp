@@ -12,3 +12,5 @@ Run `grunt` for building and `grunt serve` for preview.
 
 Running `grunt test` will run the unit tests with karma.
 
+Refer to: http://yeoman.io/codelab.html
+
