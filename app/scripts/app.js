@@ -23,8 +23,10 @@ Site.config(
     "use strict";
 
     $stateProvider
-      .state('home', {url: '/home', templateUrl: 'views/main.html', controller: 'MainCtrl'})
+      .state('teacher', {url: '/teacher/:id', templateUrl: 'views/teacher/center.html', controller: 'TeacherCenterCtrl'})
+      .state('home', {url: '/home', templateUrl: 'views/home.html', controller: 'MainCtrl'})
+      .state('login', {url: '/login', templateUrl: 'views/login.html', controller: 'LoginCtrl'})
       .state('about', {url: '/about', templateUrl: 'views/about.html', controller: 'AboutCtrl'});
-    $urlRouterProvider.otherwise('/home');
+    $urlRouterProvider.otherwise('/login');
 
   });

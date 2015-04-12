@@ -1,4 +1,4 @@
-Site.constant('configConst', (function () {
+Site.constant('ConfigConst', (function () {
   "use strict";
 
   var _version = "0.0.1";
@@ -6,7 +6,7 @@ Site.constant('configConst', (function () {
   var _env = 'dev';  //DEV or PRD
 
   var _devURLs = {
-    api: 'http://localhost:9000/',
+    api: 'http://localhost:9000/data/',
     baseUrl: 'http://localhost:9000/'
   };
 
