@@ -1,0 +1,105 @@
+<div class="wrapper">
+    <div class="row" ng-include="'views/teacher/header.html'"></div>
+    <div class="wrapper-content container">
+        <div class="row">
+            <div class="sidebar-menu sidebar-left col-sm-2">
+
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+
+                        <h3 class="panel-title"><span class="icon-list"></span>资源总览</h3>
+                    </div>
+                    <div class="panel-body no-padding">
+                        <ul class="list-group">
+                            <li class="list-group-item">
+                                <span class="badge">14</span>
+                                个人教材
+                            </li>
+                            <li class="list-group-item">
+                                <span class="badge">2</span>
+                                共享教材
+                            </li>
+                            <li class="list-group-item">
+                                <span class="badge">1</span>
+                                个人试卷
+                            </li>
+                            <li class="list-group-item">
+                                <span class="badge">3</span>
+                                学校试卷
+                            </li>
+                            <li class="list-group-item">
+                                <span class="badge">7</span>
+                                个人影音
+                            </li>
+                            <li class="list-group-item">
+                                <span class="badge">4</span>
+                                共享视频
+                            </li>
+                            <li class="list-group-item">
+                                <span class="badge">1</span>
+                                使用手册
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title"><span class="icon-books"></span>我的课程</h3>
+                    </div>
+                    <div class="panel-body no-padding">
+                        <ul class="list-group">
+                            <li class="list-group-item">
+                                离散数学(1245345)
+                            </li>
+                            <li class="list-group-item">
+                                网络技术(55665345)
+                            </li>
+                            <li class="list-group-item">
+                                数据机构(78895345)
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="mid-content col-sm-7">
+                <div>
+                    <div class="alert alert-dismissible alert-warning">
+                        <button type="button" class="close" data-dismiss="alert">×</button>
+                        <h4>通知</h4>
+                        <p>Best check yo self, you're not looking too good. Nulla vitae elit libero, a pharetra augue. Praesent commodo cursus magna, <a href="#" class="alert-link">vel scelerisque nisl consectetur et</a>.</p>
+                    </div>
+                </div>
+                <!-- To be filled part-->
+                <div ui-view></div>
+
+            </div>
+            <div class="sidebar-menu sidebar-right col-sm-3">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title"><span class="icon-mail2"></span>未读电子纸条</h3>
+                    </div>
+                    <div class="panel-body">
+                        尚无资料
+                    </div>
+                </div>
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title"><span class="icon-file-text2"></span>线上评量信息</h3>
+                    </div>
+                    <div class="panel-body">
+                        尚无资料
+                    </div>
+                </div>
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title"><span class="icon-pen"></span>进行中的作业</h3>
+                    </div>
+                    <div class="panel-body">
+                        尚无资料
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" ng-include="'views/footer.html'"></div>
+</div>

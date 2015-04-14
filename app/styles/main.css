@@ -1,64 +1,14 @@
-.browsehappy {
-  margin: 0.2em 0;
-  background: #ccc;
-  color: #000;
-  padding: 0.2em 0;
-}
-
+/* Common Setting  */
 body {
   padding: 0;
 }
-.container-fluid {
-    padding: 0;
-}
-
-/* login page start */
-.container-green {
-    background: linear-gradient(135deg, #12a37f 0%,#41af48 100%);
-    min-height: 500px;
-}
-.container-green h2{
-    color: #FFF;
-    text-align: center;
-    padding-top: 30px;
-    margin: 0;
-}
-.container-green .login-form{
-    width: 400px;
-    background-color: #FFF;
-    margin: 0 auto;
-    position: relative;
-    top: 25px;
-    border-radius: 4px;
-}
-.login-form legend{
-    padding: 5px 10px;
-}
-.login-form .form-horizontal .form-group {
-    margin-left: 0;
-    margin-right: 0;
-}
-.login-form .form-group .control-label {
-    padding-right: 0px;
-    padding-left: 0px;
-}
-.login-form .form-group i {
-    font-size: 18px;
-}
-.login-form .form-group a {
-    margin-left: 13px;
-}
-/* login page end */
-
-/* Everything but the jumbotron gets side spacing for mobile first views */
 .header,
-.marketing,
 .footer {
-  padding-left: 15px;
-  padding-right: 15px;
+    padding-left: 0;
+    padding-right: 0;
 }
 
-/* Custom page header */
+/* Site header */
 .header {
   border-bottom: 1px solid #e5e5e5;
   margin-bottom: 10px;
@@ -70,15 +20,8 @@ body {
 .header .navbar .navbar-header {
     padding-left: 50px;
 }
-/* Make the masthead heading the same height as the navigation */
-.header h3 {
-  margin-top: 0;
-  margin-bottom: 0;
-  line-height: 40px;
-  padding-bottom: 19px;
-}
 
-/* Custom page footer */
+/* Site footer */
 .footer {
   padding-top: 19px;
   color: #777;
@@ -89,48 +32,40 @@ body {
     text-align: right;
     padding-right: 20px;
 }
-
-.container-narrow > hr {
-  margin: 30px 0;
+/* Site content */
+.img-pdf {
+    background: linear-gradient(135deg, #f70000 0%,#930000 100%);
+    font-size: 36px;
+    color: #fff;
+    border-radius: 4px;
+    padding: 4px;
+}
+.img-word {
+    background: linear-gradient(135deg, #42adb7 0%,#0072ab 100%);
+    font-size: 36px;
+    color: #fff;
+    border-radius: 4px;
+    padding: 4px;
+}
+.img-excel {
+    background: linear-gradient(135deg, #82d900 0%,#138600 100%);
+    font-size: 36px;
+    color: #fff;
+    border-radius: 4px;
+    padding: 4px;
+}
+.align-right {
+    text-align: right;
+}
+.relative {
+    position: relative;
 }
 
-/* Main marketing message and sign up button */
-.jumbotron {
-  text-align: center;
-  border-bottom: 1px solid #e5e5e5;
-}
-.jumbotron .btn {
-  font-size: 21px;
-  padding: 14px 24px;
-}
-
-/* Supporting marketing content */
-.marketing {
-  margin: 40px 0;
-}
-.marketing p + h4 {
-  margin-top: 28px;
-}
-
-/* Responsive: Portrait tablets and up */
-@media screen and (min-width: 768px) {
-  .container {
-    max-width: 730px;
-  }
-
-  /* Remove the padding we set earlier */
-  .header,
-  .marketing,
-  .footer {
-    padding-left: 0;
-    padding-right: 0;
-  }
-  /* Space out the masthead */
-  .header {
-    margin-bottom: 30px;
-  }
-  /* Remove the bottom border on the jumbotron for visual effect */
-  .jumbotron {
-    border-bottom: 0;
-  }
+/* Main container */
+.main-container .common-container {
+    background-color: #fff;
+    border: 1px solid #DDD;
+    padding: 0;
+    border-top-right-radius: 3px;
+    border-top-left-radius: 3px;
 }

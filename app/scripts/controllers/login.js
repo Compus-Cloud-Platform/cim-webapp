@@ -12,11 +12,13 @@ Site.controller('LoginCtrl',['$scope', 'AuthSrv', '$state', function ($scope, Au
   $scope.login = function () {
     AuthSrv.login($scope.form.user, $scope.form.pass)
       .then(function (session) {
+        var user = session.data;
+
         var redirectUrl = undefined;
         if (redirectUrl) {
           $location.path(redirectUrl);
         } else {
-          $state.go('teacher');
+          $state.go('teacher.center',{id: user.userId});
         }
       })
       .catch(function () {
