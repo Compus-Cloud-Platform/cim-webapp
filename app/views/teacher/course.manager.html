@@ -67,7 +67,35 @@
                 <a href="javascript:void(0)">导出学生账号资料（.xlsx）</a>
             </div>
             <div class="stu-list">
-
+                <table st-table="rowCollection" class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>
+                            <input type="checkbox" ng-model="selectedAll" ng-click="checkAll()" />
+                            <a href="javascript:void(0)">删除</a>
+                        </th>
+                        <th st-sort="getters.sitNum">座号</th>
+                        <th st-sort="name">姓名</th>
+                        <th st-sort="identity">学号</th>
+                        <th st-sort="sex" >性别</th>
+                        <th st-sort="id" >账号</th>
+                        <th st-sort="groupId" >群组编号</th>
+                        <th st-sort="groupName" >组名</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="row in rowCollection">
+                        <td cs-select="row"></td>
+                        <td>{{row.sitNum}}</td>
+                        <td>{{row.name}}</td>
+                        <td>{{row.identity}}</td>
+                        <td>{{row.sex}}</td>
+                        <td>{{row.id}}</td>
+                        <td>{{row.groupId}}</td>
+                        <td>{{row.groupName}}</td>
+                    </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>

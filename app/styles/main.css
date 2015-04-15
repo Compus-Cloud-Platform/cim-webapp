@@ -60,6 +60,13 @@ body {
 .relative {
     position: relative;
 }
+.st-sort-ascent:before{
+    content: '\25B2';
+}
+
+.st-sort-descent:before{
+    content: '\25BC';
+}
 
 /* Main container */
 .main-container .common-container {
