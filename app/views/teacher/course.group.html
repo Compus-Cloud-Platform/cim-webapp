@@ -16,7 +16,18 @@
                 </div>
             </div>
             <div class="stu-list">
+                <select size="5" multiple ng-model="available" ng-options="client as client.name for client in availableclients" style="width: 200px"></select>
+                <input id="moveright" type="button" value="Add Client" ng-click="moveItems(available, availableclients,selectedclients)" />
+                <input id="moverightall" type="button" value="Add All Clients" ng-click="moveAll(availableclients,selectedclients)" />
+                <input id="move left" type="button" value="Remove Client" ng-click="moveItem(selected[0], selectedclients,availableclients)" />
+                <input id="moveleftall" type="button" value="Remove All Clients" ng-click="moveAll(selectedclients,availableclients)" />
 
+                <label for="sclients">Selected Clients</label>
+                <select size="5" multiple ng-model="selected" ng-options="client as client.name for client in selectedclients" style="width: 200px"></select>
+                <div>Selected Clients: {{selectedclients}}</div>
+                <div>Available Clients: {{availableclients}}</div>
+                <div>Selected: {{selected}}</div>
+                <div>Available: {{available}}</div>
             </div>
             <!-- stu-list end-->
         </div>
