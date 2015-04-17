@@ -1,7 +1,7 @@
 /* login page */
 .container-green {
     background: linear-gradient(135deg, #12a37f 0%,#41af48 100%);
-    min-height: 500px;
+    min-height: 800px;
 }
 .container-green h2{
     color: #FFF;
