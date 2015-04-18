@@ -16,28 +16,29 @@ var Site = angular.module('Site', [
   'ngSanitize',
   'ngTouch',
   'ui.router',
-  'smart-table'
+  'smart-table',
+  "com.2fdevs.videogular"
 ]);
 
 Site.config(
   [          '$stateProvider', '$urlRouterProvider',
-  function ($stateProvider, $urlRouterProvider) {
-    "use strict";
+    function ($stateProvider, $urlRouterProvider) {
+      "use strict";
 
-    $stateProvider
-      .state('teacher', {abstract: true, url: '/teacher/:id', templateUrl: 'views/teacher/home.html', controller: 'TeacherCenterCtrl'})
-      .state('teacher.center', {url: '', templateUrl: 'views/teacher/center.html', controller: 'TeacherCenterCtrl'})
-      .state('teacher.course', {url: '/course-manager', templateUrl: 'views/teacher/course.manager.html', controller: 'CourseManagerCtrl'})
-      .state('teacher.coursegroup', {url: '/course-group', templateUrl: 'views/teacher/course.group.html', controller: 'CourseGroupCtrl'})
-      .state('teacher.nameedit', {url: '/name-edit', templateUrl: 'views/teacher/name.edit.html', controller: 'CourseGroupCtrl'})
-      .state('teacher.sitedit', {url: '/sit-edit', templateUrl: 'views/teacher/sit.edit.html', controller: 'CourseGroupCtrl'})
-      .state('teacher.studentadd', {url: '/student-add', templateUrl: 'views/teacher/student.add.html', controller: 'CourseGroupCtrl'})
-      .state('teacher.video', {url: '/video-home', templateUrl: 'views/teacher/video.home.html', controller: 'VideoHomeCtrl'})
+      $stateProvider
+        .state('teacher', {abstract: true, url: '/teacher/:id', templateUrl: 'views/teacher/home.html', controller: 'TeacherCenterCtrl'})
+        .state('teacher.center', {url: '', templateUrl: 'views/teacher/center.html', controller: 'TeacherCenterCtrl'})
+        .state('teacher.course', {url: '/course-manager', templateUrl: 'views/teacher/course.manager.html', controller: 'CourseManagerCtrl'})
+        .state('teacher.coursegroup', {url: '/course-group', templateUrl: 'views/teacher/course.group.html', controller: 'CourseGroupCtrl'})
+        .state('teacher.nameedit', {url: '/name-edit', templateUrl: 'views/teacher/name.edit.html', controller: 'CourseGroupCtrl'})
+        .state('teacher.sitedit', {url: '/sit-edit', templateUrl: 'views/teacher/sit.edit.html', controller: 'CourseGroupCtrl'})
+        .state('teacher.studentadd', {url: '/student-add', templateUrl: 'views/teacher/student.add.html', controller: 'CourseGroupCtrl'})
+        .state('teacher.video', {url: '/video-home', templateUrl: 'views/teacher/video.home.html', controller: 'VideoHomeCtrl'})
 
-      .state('teacher.group', {url: '/group-manager', templateUrl: 'views/teacher/group.manager.html', controller: 'GroupManagerCtrl'})
-      .state('home', {url: '/home', templateUrl: 'views/home.html', controller: 'MainCtrl'})
-      .state('login', {url: '/login', templateUrl: 'views/login.html', controller: 'LoginCtrl'})
-      .state('about', {url: '/about', templateUrl: 'views/about.html', controller: 'AboutCtrl'});
-    $urlRouterProvider.otherwise('/login');
+        .state('teacher.group', {url: '/group-manager', templateUrl: 'views/teacher/group.manager.html', controller: 'GroupManagerCtrl'})
+        .state('home', {url: '/home', templateUrl: 'views/home.html', controller: 'MainCtrl'})
+        .state('login', {url: '/login', templateUrl: 'views/login.html', controller: 'LoginCtrl'})
+        .state('about', {url: '/about', templateUrl: 'views/about.html', controller: 'AboutCtrl'});
+      $urlRouterProvider.otherwise('/login');
 
-  }]);
+    }]);

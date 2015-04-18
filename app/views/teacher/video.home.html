@@ -1,4 +1,4 @@
-<div class="common-container">
+<div class="common-container" ng-controller="VideoHomeCtrl as controller">
     <div class="panel panel-info no-border">
         <div class="panel-heading">
             <h3 class="panel-title">更改学生姓名</h3>
@@ -10,34 +10,14 @@
                 <div><a ui-sref="teacher.course">返回学生账号管理</a></div>
             </div>
             <div class="stu-list">
-                <form class="form-horizontal">
-                    <fieldset>
-                        <div class="form-group">
-                            <div class="col-sm-4">
-                                <input type="file" class="form-control" id="inputEmail">
-                            </div>
-                        </div>
-                    </fieldset>
-                </form>
-                <form class="form-horizontal">
-                    <fieldset>
-                        <div class="form-group">
-                            <label for="inputEmail" class="col-sm-2 control-label">请输入学号</label>
-                            <div class="col-sm-4">
-                                <input type="text" class="form-control" id="inputEmail">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="inputEmail" class="col-sm-2 control-label">请输入账号</label>
-                            <div class="col-sm-4">
-                                <input type="text" class="form-control" id="inputEmail">
-                            </div>
-                        </div>
-                        <div class="col-lg-10 col-lg-offset-2">
-                            <button type="submit" class="btn btn-primary">Submit</button>
-                        </div>
-                    </fieldset>
-                </form>
+                <div class="videogular-container">
+                    <videogular vg-theme="controller.config.theme.url">
+                        <vg-media vg-src="controller.config.sources"
+                                  vg-tracks="controller.config.tracks"
+                                  vg-native-controls="true">
+                        </vg-media>
+                    </videogular>
+                </div>
             </div>
             <!-- stu-list end-->
         </div>

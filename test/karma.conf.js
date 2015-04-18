@@ -32,7 +32,7 @@ module.exports = function(config) {
       'bower_components/angular-smart-table/dist/smart-table.js',
       'bower_components/lodash/lodash.js',
       'bower_components/moment/moment.js',
-      'bower_components/favico.js/favico.js',
+      'bower_components/videogular/videogular.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       'app/scripts/**/*.js',
