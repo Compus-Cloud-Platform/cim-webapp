@@ -39,3 +39,13 @@
     font-size: 14px;
     top: 8px;
 }
+.video-page .template{
+    font-size: 12px;
+}
+.video-page .template .album-options{
+    padding: 5px 0px;
+}
+.video-page .template p{
+    margin: 0;
+    padding-bottom: 2px;
+}

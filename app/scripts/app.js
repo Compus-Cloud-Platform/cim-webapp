@@ -34,6 +34,7 @@ Site.config(
         .state('teacher.sitedit', {url: '/sit-edit', templateUrl: 'views/teacher/sit.edit.html', controller: 'CourseGroupCtrl'})
         .state('teacher.studentadd', {url: '/student-add', templateUrl: 'views/teacher/student.add.html', controller: 'CourseGroupCtrl'})
         .state('teacher.video', {url: '/video-home', templateUrl: 'views/teacher/video.home.html', controller: 'VideoHomeCtrl'})
+        .state('teacher.videodetail', {url: '/video-detail', templateUrl: 'views/teacher/video.detail.html', controller: 'VideoHomeCtrl'})
 
         .state('teacher.group', {url: '/group-manager', templateUrl: 'views/teacher/group.manager.html', controller: 'GroupManagerCtrl'})
         .state('home', {url: '/home', templateUrl: 'views/home.html', controller: 'MainCtrl'})
