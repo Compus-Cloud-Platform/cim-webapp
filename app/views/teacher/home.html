@@ -11,32 +11,11 @@
                     </div>
                     <div class="panel-body no-padding">
                         <ul class="list-group">
-                            <li class="list-group-item">
-                                <span class="badge">14</span>
-                                个人教材
+                            <li class="list-group-item" ng-repeat="item in resourceSummary">
+                                <span class="badge">{{item.count}}</span>
+                                {{item.name}}
                             </li>
                             <li class="list-group-item">
-                                <span class="badge">2</span>
-                                共享教材
-                            </li>
-                            <li class="list-group-item">
-                                <span class="badge">1</span>
-                                个人试卷
-                            </li>
-                            <li class="list-group-item">
-                                <span class="badge">3</span>
-                                学校试卷
-                            </li>
-                            <li class="list-group-item">
-                                <span class="badge">7</span>
-                                个人影音
-                            </li>
-                            <li class="list-group-item">
-                                <span class="badge">4</span>
-                                共享视频
-                            </li>
-                            <li class="list-group-item">
-                                <span class="badge">1</span>
                                 使用手册
                             </li>
                         </ul>
@@ -48,14 +27,8 @@
                     </div>
                     <div class="panel-body no-padding">
                         <ul class="list-group">
-                            <li class="list-group-item">
-                                离散数学(1245345)
-                            </li>
-                            <li class="list-group-item">
-                                网络技术(55665345)
-                            </li>
-                            <li class="list-group-item">
-                                数据机构(78895345)
+                            <li class="list-group-item" ng-repeat="item in courseSummary">
+                                {{item.name}}({{item.code}})
                             </li>
                         </ul>
                     </div>
@@ -65,8 +38,7 @@
                 <div>
                     <div class="alert alert-dismissible alert-warning">
                         <button type="button" class="close" data-dismiss="alert">×</button>
-                        <h4>通知</h4>
-                        <p>Best check yo self, you're not looking too good. Nulla vitae elit libero, a pharetra augue. Praesent commodo cursus magna, <a href="#" class="alert-link">vel scelerisque nisl consectetur et</a>.</p>
+                        <p>全校师生今天参加拔河比赛！</p>
                     </div>
                 </div>
                 <!-- To be filled part-->

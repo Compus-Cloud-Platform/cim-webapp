@@ -2,15 +2,22 @@
 
 /**
  * @ngdoc function
- * @name cimWebappApp.controller:MainCtrl
+ * @name cimWebappApp.controller:TeacherCenterCtrl
  * @description
- * # MainCtrl
+ * # TeacherCenterCtrl
  * Controller of the cimWebappApp
  */
 Site.controller('TeacherCenterCtrl', function ($scope) {
-  $scope.awesomeThings = [
-    'HTML5 Boilerplate',
-    'AngularJS',
-    'Karma'
+  $scope.paperList = [
+    {name:"期中测验", course: "英语", teacher:"共享教材", time: "20150-04-09"},
+    {name:"期中测验", course: "英语", teacher:"共享教材", time: "20150-04-09"},
+    {name:"期中测验", course: "英语", teacher:"共享教材", time: "20150-04-09"},
+    {name:"期中测验", course: "英语", teacher:"共享教材", time: "20150-04-09"},
+    {name:"期中测验", course: "英语", teacher:"共享教材", time: "20150-04-09"},
+    {name:"期中测验", course: "英语", teacher:"共享教材", time: "20150-04-09"},
+    {name:"期中测验", course: "英语", teacher:"共享教材", time: "20150-04-09"},
+    {name:"期中测验", course: "英语", teacher:"共享教材", time: "20150-04-09"},
+    {name:"期中测验", course: "英语", teacher:"共享教材", time: "20150-04-09"},
+    {name:"期中测验", course: "英语", teacher:"共享教材", time: "20150-04-09"}
   ];
 });

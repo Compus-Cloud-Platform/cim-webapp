@@ -18,7 +18,20 @@ Site.controller('LoginCtrl',['$scope', 'AuthSrv', '$state', function ($scope, Au
         if (redirectUrl) {
           $location.path(redirectUrl);
         } else {
-          $state.go('teacher.center',{id: user.userId});
+          switch(user.position) {
+            case 'teacher':
+              $state.go('teacher.center',{id: user.userId});
+              break;
+            case 'student':
+              $state.go('student.center',{id: user.userId});
+              break;
+            case 'admin':
+              $state.go('admin.center',{id: user.userId});
+              break;
+            case 'systemAdmin':
+              $state.go('systemadmin.center',{id: user.userId});
+              break;
+          }
         }
       })
       .catch(function () {

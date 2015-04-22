@@ -26,7 +26,7 @@ Site.config(
       "use strict";
 
       $stateProvider
-        .state('teacher', {abstract: true, url: '/teacher/:id', templateUrl: 'views/teacher/home.html', controller: 'TeacherCenterCtrl'})
+        .state('teacher', {abstract: true, url: '/teacher/:id', templateUrl: 'views/teacher/home.html', controller: 'TeacherHomeCtrl'})
         .state('teacher.center', {url: '', templateUrl: 'views/teacher/center.html', controller: 'TeacherCenterCtrl'})
         .state('teacher.course', {url: '/course-manager', templateUrl: 'views/teacher/course.manager.html', controller: 'CourseManagerCtrl'})
         .state('teacher.coursegroup', {url: '/course-group', templateUrl: 'views/teacher/course.group.html', controller: 'CourseGroupCtrl'})
@@ -36,6 +36,7 @@ Site.config(
         .state('teacher.video', {url: '/video-home', templateUrl: 'views/teacher/video.home.html', controller: 'VideoHomeCtrl'})
         .state('teacher.videodetail', {url: '/video-detail', templateUrl: 'views/teacher/video.detail.html', controller: 'VideoHomeCtrl'})
         .state('teacher.group', {url: '/group-manager', templateUrl: 'views/teacher/group.manager.html', controller: 'GroupManagerCtrl'})
+
         .state('login', {url: '/login', templateUrl: 'views/login.html', controller: 'LoginCtrl'});
       $urlRouterProvider.otherwise('/login');
 
