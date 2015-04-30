@@ -7,27 +7,28 @@
             <div class="stu-header">
                 <div><span>学年：</span><span>2014 学年 / 下学期</span></div>
                 <div><span>课程名称：</span><span>平面设计</span></div>
-                <div><a ui-sref="teacher.course">返回学生账号管理</a></div>
+                <div><a ui-sref="teacher-course({id:userData.userId})">返回学生账号管理</a></div>
             </div>
             <div class="stu-list well well-sm">
                 <form class="form-horizontal">
                     <fieldset>
-                        <div class="form-group">
-                            <label for="inputEmail" class="col-sm-2 control-label">座号：</label>
-                            <label for="inputEmail" class="col-sm-2 control-label">1</label>
+                        <div class="form-group col-sm-4" ng-repeat="item in studentsByCourse">
+                            <label class="col-sm-12">
+                                <span class="col-sm-5">座号:</span>
+                                <span class="col-sm-7">{{item.sitNum}}</span>
+                            </label>
+                            <label class="col-sm-12">
+                                <span class="col-sm-5">姓名:</span>
+                                <span class="col-sm-7">{{item.name}}</span>
+                            </label>
+                            <label class="col-sm-12">
+                                <span class="col-sm-5">新座号:</span>
+                                <span class="col-sm-7"><input type="text" class="form-control input-control" value="{{item.sitNum}}"></span>
+                            </label>
                         </div>
-                        <div class="form-group">
-                            <label for="inputEmail" class="col-sm-2 control-label">姓名：</label>
-                            <label for="inputEmail" class="col-sm-2 control-label">XXXX</label>
-                        </div>
-                        <div class="form-group">
-                            <label for="inputEmail" class="col-sm-2 control-label">新座号：</label>
-                            <div class="col-sm-4">
-                                <input type="text" class="form-control" id="inputEmail" value="1">
-                            </div>
-                        </div>
-                        <div class="col-lg-10 col-lg-offset-2">
-                            <button type="submit" class="btn btn-primary">Submit</button>
+
+                        <div class="col-lg-10 text-center">
+                            <button type="submit" class="btn btn-primary">保存</button>
                         </div>
                     </fieldset>
                 </form>

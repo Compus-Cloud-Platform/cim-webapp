@@ -32,9 +32,9 @@ Site.config(
         .state('teacher-name-edit', {url: '/teacher/:id/name-edit', templateUrl: 'views/teacher/name.edit.html'})
         .state('teacher-seat-edit', {url: '/teacher/:id/seat-edit', templateUrl: 'views/teacher/seat.edit.html'})
         .state('teacher-student-add', {url: '/teacher/:id/student-add', templateUrl: 'views/teacher/student.add.html'})
-        .state('teacher.video', {url: '/video-home', templateUrl: 'views/teacher/video.home.html', controller: 'VideoHomeCtrl'})
-        .state('teacher.videodetail', {url: '/video-detail', templateUrl: 'views/teacher/video.detail.html', controller: 'VideoHomeCtrl'})
-        .state('teacher.group', {url: '/group-manager', templateUrl: 'views/teacher/group.manager.html', controller: 'GroupManagerCtrl'})
+        .state('teacher-group', {url: '/teacher/:id/group-manager', templateUrl: 'views/teacher/group.manager.html'})
+        .state('teacher-video', {url: '/teacher/:id/video-home', templateUrl: 'views/teacher/video.home.html', controller: 'VideoHomeCtrl'})
+        .state('teacher-video-detail', {url: '/teacher/:id/video-detail/:vid', templateUrl: 'views/teacher/video.detail.html', controller: 'VideoHomeCtrl'})
 
         .state('login', {url: '/login', templateUrl: 'views/login.html', controller: 'LoginCtrl'});
       $urlRouterProvider.otherwise('/login');

@@ -1,148 +1,19 @@
-<div class="common-container video-page" ng-controller="VideoHomeCtrl as controller">
-    <div class="panel panel-default no-border">
-        <div class="panel-heading">
-            <h3 class="panel-title">公共视频资源</h3>
-        </div>
-        <div class="panel-body">
-            <section class="row">
-                <div class="col-sm-3">
-                    <article class="template">
-                        <header ui-sref="teacher.videodetail">
-                            <img src="images/video-thumb.jpg" class="img-responsive"/>
-                            <div  class="album-options">
-                                <a href="javascript:void(0)"> 五单元练习第3题 </a>
-                            </div>
-                        </header>
-                        <div class="album-info clearfix">
-                            <div class="album-info-left">
-                                <p>类型：wmv</p>
-                                <p>日期：2014-05-04 17:24:59</p>
-                            </div>
-                        </div>
-                    </article>
-                </div>
-                <div class="col-sm-3">
-                    <article class="template">
-                        <header ui-sref="teacher.videodetail">
-                            <img src="images/video-thumb.jpg" class="img-responsive"/>
-                            <div  class="album-options">
-                                <a href="javascript:void(0)"> 五单元练习第3题 </a>
-                            </div>
-                        </header>
-                        <div class="album-info clearfix">
-                            <div class="album-info-left">
-                                <p>类型：wmv</p>
-                                <p>日期：2014-05-04 17:24:59</p>
-                            </div>
-                        </div>
-                    </article>
-                </div>
-                <div class="col-sm-3">
-                    <article class="template">
-                        <header ui-sref="teacher.videodetail">
-                            <img src="images/video-thumb.jpg" class="img-responsive"/>
-                            <div  class="album-options">
-                                <a href="javascript:void(0)"> 五单元练习第3题 </a>
-                            </div>
-                        </header>
-                        <div class="album-info clearfix">
-                            <div class="album-info-left">
-                                <p>类型：wmv</p>
-                                <p>日期：2014-05-04 17:24:59</p>
-                            </div>
-                        </div>
-                    </article>
-                </div>
-                <div class="col-sm-3">
-                    <article class="template">
-                        <header ui-sref="teacher.videodetail">
-                            <img src="images/video-thumb.jpg" class="img-responsive"/>
-                            <div  class="album-options">
-                                <a href="javascript:void(0)"> 五单元练习第3题 </a>
-                            </div>
-                        </header>
-                        <div class="album-info clearfix">
-                            <div class="album-info-left">
-                                <p>类型：wmv</p>
-                                <p>日期：2014-05-04 17:24:59</p>
-                            </div>
-                        </div>
-                    </article>
-                </div>
-            </section>
+<div class="wrapper" data-ng-controller="HeaderCtrl">
+    <div class="row" ng-include="'views/teacher/header.html'"></div>
+    <div class="wrapper-content container">
+        <div class="row">
+            <!-- left slide bar-->
+            <div ng-include="'views/teacher/leftbar.html'"></div>
+            <div class="mid-content col-sm-8">
+                <div ng-include="'views/teacher/notice.html'"></div>
+
+                <!-- To be filled part-->
+                <div ng-include="'views/teacher/video.home.center.html'"></div>
+
+            </div>
+            <!-- right slide bar-->
+            <div ng-include="'views/teacher/rightbar.html'"></div>
         </div>
     </div>
-    <div class="panel panel-default no-border">
-        <div class="panel-heading">
-            <h3 class="panel-title">个人视频资源</h3>
-        </div>
-        <div class="panel-body">
-            <section class="row">
-                <div class="col-sm-3">
-                    <article class="template">
-                        <header ui-sref="teacher.videodetail">
-                            <img src="images/video-thumb.jpg" class="img-responsive"/>
-                            <div  class="album-options">
-                                <a href="javascript:void(0)"> 五单元练习第3题 </a>
-                            </div>
-                        </header>
-                        <div class="album-info clearfix">
-                            <div class="album-info-left">
-                                <p>类型：wmv</p>
-                                <p>日期：2014-05-04 17:24:59</p>
-                            </div>
-                        </div>
-                    </article>
-                </div>
-                <div class="col-sm-3">
-                    <article class="template">
-                        <header ui-sref="teacher.videodetail">
-                            <img src="images/video-thumb.jpg" class="img-responsive"/>
-                            <div  class="album-options">
-                                <a href="javascript:void(0)"> 五单元练习第3题 </a>
-                            </div>
-                        </header>
-                        <div class="album-info clearfix">
-                            <div class="album-info-left">
-                                <p>类型：wmv</p>
-                                <p>日期：2014-05-04 17:24:59</p>
-                            </div>
-                        </div>
-                    </article>
-                </div>
-                <div class="col-sm-3">
-                    <article class="template">
-                        <header ui-sref="teacher.videodetail">
-                            <img src="images/video-thumb.jpg" class="img-responsive"/>
-                            <div  class="album-options">
-                                <a href="javascript:void(0)"> 五单元练习第3题 </a>
-                            </div>
-                        </header>
-                        <div class="album-info clearfix">
-                            <div class="album-info-left">
-                                <p>类型：wmv</p>
-                                <p>日期：2014-05-04 17:24:59</p>
-                            </div>
-                        </div>
-                    </article>
-                </div>
-                <div class="col-sm-3">
-                    <article class="template">
-                        <header ui-sref="teacher.videodetail">
-                            <img src="images/video-thumb.jpg" class="img-responsive"/>
-                            <div  class="album-options">
-                                <a href="javascript:void(0)"> 五单元练习第3题 </a>
-                            </div>
-                        </header>
-                        <div class="album-info clearfix">
-                            <div class="album-info-left">
-                                <p>类型：wmv</p>
-                                <p>日期：2014-05-04 17:24:59</p>
-                            </div>
-                        </div>
-                    </article>
-                </div>
-            </section>
-        </div>
-    </div>
+    <div class="row" ng-include="'views/footer.html'"></div>
 </div>

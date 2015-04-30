@@ -9,23 +9,24 @@
  */
 Site.controller('HeaderCtrl', ['$scope', 'AuthSrv', '$state', function ($scope, AuthSrv, $state) {
   console.log("HeaderCtrl");
+
   $scope.userData = {userId: "SG0822888", name: "ruigao", password: "19851012", position: "teacher"};
 
   $scope.headerArray = [
     {
       name: "影音资源平台",
       subList: [
-        {name: "影音首页", link: "teacher.video"},
-        {name: "课程影音历程", link: "teacher.video"},
-        {name: "个人影音管理", link: "teacher.video"},
-        {name: "共享视频资源", link: "teacher.video"}
+        {name: "影音首页", link: "teacher-video"},
+        {name: "课程影音历程", link: "teacher-video"},
+        {name: "个人影音管理", link: "teacher-video"},
+        {name: "共享视频资源", link: "teacher-video"}
       ]
     },
     {
       name: "课程与群组管理",
       subList: [
         {name: "课程管理", link: "teacher-course"},
-        {name: "教师群组", link: "teacher.group"}
+        {name: "教师群组", link: "teacher-group"}
       ]
     },
     {

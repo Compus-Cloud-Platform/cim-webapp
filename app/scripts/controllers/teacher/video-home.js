@@ -9,16 +9,25 @@
  */
 Site.controller('VideoHomeCtrl', ['$scope', '$sce', function ($scope, $sce) {
 
+  $scope.shareVideos = [
+    {id: 1, name: '五单元练习第3题', type: 'mp4', dataTime: '2014-05-04 17:24:59'},
+    {id: 2, name: '五单元练习第3题', type: 'mp4', dataTime: '2014-05-04 17:24:59'},
+    {id: 3, name: '五单元练习第3题', type: 'mp4', dataTime: '2014-05-04 17:24:59'},
+    {id: 4, name: '五单元练习第3题', type: 'mp4', dataTime: '2014-05-04 17:24:59'},
+    {id: 4, name: '五单元练习第3题', type: 'mp4', dataTime: '2014-05-04 17:24:59'},
+    {id: 4, name: '五单元练习第3题', type: 'mp4', dataTime: '2014-05-04 17:24:59'}
+  ];
+
   this.config = {
     preload: "none",
     sources: [
-      {src: $sce.trustAsResourceUrl("http://localhost:9000/resource/videos/videogular.mp4"), type: "video/mp4"},
-      {src: $sce.trustAsResourceUrl("http://static.videogular.com/assets/videos/videogular.webm"), type: "video/webm"},
-      {src: $sce.trustAsResourceUrl("http://static.videogular.com/assets/videos/videogular.ogg"), type: "video/ogg"}
+      {src: $sce.trustAsResourceUrl("http://localhost:9000/cloud/data/videos/videogular.mp4"), type: "video/mp4"},
+      {src: $sce.trustAsResourceUrl("http://localhost:9000/cloud/data/videos/videogular.webm"), type: "video/webm"},
+      {src: $sce.trustAsResourceUrl("http://localhost:9000/cloud/data/videos/videogular.ogg"), type: "video/ogg"}
     ],
     tracks: [
       {
-        src: "http://www.videogular.com/assets/subs/pale-blue-dot.vtt",
+        src: "http://localhost:9000/cloud/data/videos/subs/pale-blue-dot.vtt",
         kind: "subtitles",
         srclang: "en",
         label: "English",
