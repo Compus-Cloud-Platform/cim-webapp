@@ -8,6 +8,8 @@
  * Controller of the cimWebappApp
  */
 Site.controller('HeaderCtrl', ['$scope', 'AuthSrv', '$state', function ($scope, AuthSrv, $state) {
+  console.log("HeaderCtrl");
+  $scope.userData = {userId: "SG0822888", name: "ruigao", password: "19851012", position: "teacher"};
 
   $scope.headerArray = [
     {
@@ -22,7 +24,7 @@ Site.controller('HeaderCtrl', ['$scope', 'AuthSrv', '$state', function ($scope, 
     {
       name: "课程与群组管理",
       subList: [
-        {name: "课程管理", link: "teacher.course"},
+        {name: "课程管理", link: "teacher-course"},
         {name: "教师群组", link: "teacher.group"}
       ]
     },
@@ -58,7 +60,7 @@ Site.controller('HeaderCtrl', ['$scope', 'AuthSrv', '$state', function ($scope, 
         {name: "线上纪录", link: "teacher.group"}
       ]
     }
-  ]
+  ];
 
   $scope.profile = [
     {name: "公布栏", link: "teacher.video"},
@@ -67,6 +69,21 @@ Site.controller('HeaderCtrl', ['$scope', 'AuthSrv', '$state', function ($scope, 
     {name: "网络硬盘", link: "teacher.video"},
     {name: "个人信息管理", link: "teacher.video"},
     {name: "注销系统", link: "teacher.video"}
-  ]
+  ];
+
+  // left slide bar
+  $scope.resourceSummary = [
+    {name: "个人教材", count: "1"},
+    {name: "共享教材", count: "11"},
+    {name: "学校试卷", count: "13"},
+    {name: "个人影音", count: "41"},
+    {name: "共享视频", count: "13"}
+  ];
+  $scope.courseSummary = [
+    {name: "离散数学", code: "12345"},
+    {name: "网络技术", code: "12345"},
+    {name: "数据机构", code: "12345"}
+  ];
+
 
 }]);

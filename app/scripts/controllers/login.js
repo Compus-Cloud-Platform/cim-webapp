@@ -20,7 +20,7 @@ Site.controller('LoginCtrl',['$scope', 'AuthSrv', '$state', function ($scope, Au
         } else {
           switch(user.position) {
             case 'teacher':
-              $state.go('teacher.center',{id: user.userId});
+              $state.go('teacher',{id: user.userId});
               break;
             case 'student':
               $state.go('student.center',{id: user.userId});

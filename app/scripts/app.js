@@ -26,13 +26,12 @@ Site.config(
       "use strict";
 
       $stateProvider
-        .state('teacher', {abstract: true, url: '/teacher/:id', templateUrl: 'views/teacher/home.html', controller: 'TeacherHomeCtrl'})
-        .state('teacher.center', {url: '', templateUrl: 'views/teacher/center.html', controller: 'TeacherCenterCtrl'})
-        .state('teacher.course', {url: '/course-manager', templateUrl: 'views/teacher/course.manager.html', controller: 'CourseManagerCtrl'})
-        .state('teacher.coursegroup', {url: '/course-group', templateUrl: 'views/teacher/course.group.html', controller: 'CourseGroupCtrl'})
-        .state('teacher.nameedit', {url: '/name-edit', templateUrl: 'views/teacher/name.edit.html', controller: 'CourseGroupCtrl'})
-        .state('teacher.sitedit', {url: '/sit-edit', templateUrl: 'views/teacher/sit.edit.html', controller: 'CourseGroupCtrl'})
-        .state('teacher.studentadd', {url: '/student-add', templateUrl: 'views/teacher/student.add.html', controller: 'CourseGroupCtrl'})
+        .state('teacher', {url: '/teacher/:id', templateUrl: 'views/teacher/home.html'})
+        .state('teacher-course', {url: '/teacher/:id/course-manager', templateUrl: 'views/teacher/course.manager.html'})
+        .state('teacher-course-group', {url: '/teacher/:id/course-group', templateUrl: 'views/teacher/course.group.html'})
+        .state('teacher-name-edit', {url: '/teacher/:id/name-edit', templateUrl: 'views/teacher/name.edit.html'})
+        .state('teacher-seat-edit', {url: '/teacher/:id/seat-edit', templateUrl: 'views/teacher/seat.edit.html'})
+        .state('teacher-student-add', {url: '/teacher/:id/student-add', templateUrl: 'views/teacher/student.add.html'})
         .state('teacher.video', {url: '/video-home', templateUrl: 'views/teacher/video.home.html', controller: 'VideoHomeCtrl'})
         .state('teacher.videodetail', {url: '/video-detail', templateUrl: 'views/teacher/video.detail.html', controller: 'VideoHomeCtrl'})
         .state('teacher.group', {url: '/group-manager', templateUrl: 'views/teacher/group.manager.html', controller: 'GroupManagerCtrl'})

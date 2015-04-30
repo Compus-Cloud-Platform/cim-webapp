@@ -68,7 +68,7 @@ Site.controller('CourseGroupCtrl', ['$scope', '$filter', function ($scope, $filt
     from.length = 0;
   };
 
-  $scope.selectedclients = [];
+  $scope.selectedStudents = [];
 
   $scope.availableclients = [
     {
