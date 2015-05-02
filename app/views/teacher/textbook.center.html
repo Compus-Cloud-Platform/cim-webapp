@@ -1,0 +1,23 @@
+<div class="common-container" data-ng-controller="TeacherTextbookCtrl">
+    <div class="panel panel-default no-border">
+        <div class="panel-heading">
+            <h3 class="panel-title">学生账户信息</h3>
+        </div>
+        <div class="panel-body">
+            <div class="stu-header">
+                <div><span>指导老师：</span><span>XXX</span></div>
+            </div>
+            <div class="stu-option text-right">
+                <a ui-sref="teacher-course-group({id:userData.userId})">设定群组</a>
+                <a ui-sref="teacher-student-add({id:userData.userId})">新增学生</a>
+                <a ui-sref="teacher-name-edit({id:userData.userId})">更改学生姓名</a>
+                <a ui-sref="teacher-seat-edit({id:userData.userId})">座号调整</a>
+                <a href="javascript:void(0)">打印学生信息表</a>
+                <a href="javascript:void(0)">导出学生账号资料（.xlsx）</a>
+            </div>
+            <div class="stu-list">
+
+            </div>
+        </div>
+    </div>
+</div>

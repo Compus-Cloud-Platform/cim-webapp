@@ -33,8 +33,9 @@ Site.config(
         .state('teacher-seat-edit', {url: '/teacher/:id/seat-edit', templateUrl: 'views/teacher/seat.edit.html'})
         .state('teacher-student-add', {url: '/teacher/:id/student-add', templateUrl: 'views/teacher/student.add.html'})
         .state('teacher-group', {url: '/teacher/:id/group-manager', templateUrl: 'views/teacher/group.manager.html'})
-        .state('teacher-video', {url: '/teacher/:id/video-home', templateUrl: 'views/teacher/video.home.html', controller: 'VideoHomeCtrl'})
-        .state('teacher-video-detail', {url: '/teacher/:id/video-detail/:vid', templateUrl: 'views/teacher/video.detail.html', controller: 'VideoHomeCtrl'})
+        .state('teacher-video', {url: '/teacher/:id/video-home', templateUrl: 'views/teacher/video.home.html'})
+        .state('teacher-video-detail', {url: '/teacher/:id/video-detail/:vid', templateUrl: 'views/teacher/video.detail.html'})
+        .state('teacher-textbook', {url: '/teacher/:id/textbook', templateUrl: 'views/teacher/textbook.html'})
 
         .state('login', {url: '/login', templateUrl: 'views/login.html', controller: 'LoginCtrl'});
       $urlRouterProvider.otherwise('/login');

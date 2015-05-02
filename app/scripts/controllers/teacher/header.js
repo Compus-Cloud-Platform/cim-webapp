@@ -32,10 +32,10 @@ Site.controller('HeaderCtrl', ['$scope', 'AuthSrv', '$state', function ($scope, 
     {
       name: "教学资源",
       subList: [
-        {name: "教材管理", link: "teacher.course"},
-        {name: "教材分享区", link: "teacher.group"},
-        {name: "个人试卷", link: "teacher.group"},
-        {name: "学校试卷中心", link: "teacher.group"}
+        {name: "教材管理", link: "teacher-textbook"},
+        {name: "教材分享区", link: "teacher-textbook"},
+        {name: "个人试卷", link: "teacher-textbook"},
+        {name: "学校试卷中心", link: "teacher-textbook"}
       ]
     },
     {
