@@ -17,7 +17,8 @@ var Site = angular.module('Site', [
   'ngTouch',
   'ui.router',
   'smart-table',
-  "com.2fdevs.videogular"
+  "com.2fdevs.videogular",
+  "treeControl"
 ]);
 
 Site.config(
@@ -36,6 +37,8 @@ Site.config(
         .state('teacher-video', {url: '/teacher/:id/video-home', templateUrl: 'views/teacher/video.home.html'})
         .state('teacher-video-detail', {url: '/teacher/:id/video-detail/:vid', templateUrl: 'views/teacher/video.detail.html'})
         .state('teacher-textbook', {url: '/teacher/:id/textbook', templateUrl: 'views/teacher/textbook.html'})
+        .state('teacher-textbook-share', {url: '/teacher/:id/textbook-share', templateUrl: 'views/teacher/textbook.share.html'})
+        .state('teacher-paper-personage', {url: '/teacher/:id/paper-personage', templateUrl: 'views/teacher/paper.personage.html'})
 
         .state('login', {url: '/login', templateUrl: 'views/login.html', controller: 'LoginCtrl'});
       $urlRouterProvider.otherwise('/login');
