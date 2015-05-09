@@ -2,13 +2,15 @@
 
 /**
  * @ngdoc function
- * @name cimWebappApp.controller:CourseManagerCtrl
+ * @name webApp.controller:CourseManagerCtrl
  * @description
  * # CourseManagerCtrl
- * Controller of the cimWebappApp
+ * Controller of the webApp
  */
 Site.controller('CourseManagerCtrl', ['$scope', '$filter', function ($scope, $filter) {
   console.log("CourseManagerCtrl");
+
+  $scope.checkAuth();
 
   $scope.studentsByGroup = [
     {

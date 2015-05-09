@@ -1,19 +1,14 @@
-<div class="wrapper" data-ng-controller="HeaderCtrl">
-    <div class="row" ng-include="'views/teacher/header.html'"></div>
-    <div class="wrapper-content container">
-        <div class="row">
-            <!-- left slide bar-->
-            <div ng-include="'views/teacher/leftbar.html'"></div>
-            <div class="mid-content col-sm-8">
-                <div ng-include="'views/teacher/notice.html'"></div>
-
-                <!-- To be filled part-->
-                <div ng-include="'views/teacher/group.manager.center.html'"></div>
-
-            </div>
-            <!-- right slide bar-->
-            <div ng-include="'views/teacher/rightbar.html'"></div>
+<div class="row">
+    <!-- left slide bar-->
+    <div ng-include="'views/leftbar.html'"></div>
+    <div class="mid-content col-sm-8">
+        <div ng-include="'views/notice.html'"></div>
+        <!-- To be filled part Start-->
+        <div data-ng-controller="TeacherHomeCtrl">
+            <h1>Group Manager Page!</h1>
         </div>
+        <!-- To be filled part End-->
     </div>
-    <div class="row" ng-include="'views/footer.html'"></div>
+    <!-- right slide bar-->
+    <div ng-include="'views/rightbar.html'"></div>
 </div>

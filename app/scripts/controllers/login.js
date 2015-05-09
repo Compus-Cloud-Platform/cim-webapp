@@ -2,12 +2,54 @@
 
 /**
  * @ngdoc function
- * @name cimWebappApp.controller:LoginCtrl
+ * @name webappApp.controller:LoginCtrl
  * @description
  * # LoginCtrl
- * Controller of the cimWebappApp
+ * Controller of the webappApp
  */
-Site.controller('LoginCtrl',['$scope', 'AuthSrv', '$state', function ($scope, AuthSrv, $state) {
+Site.controller('LoginCtrl', ['$scope', 'AuthSrv', '$state', '$location', function ($scope, AuthSrv, $state, $location) {
+
+  $scope.loginDisabled = true;
+  $scope.userMsg = undefined;
+  $scope.passMsg = undefined;
+  $scope.codeMsg = undefined;
+
+  $scope.nameValidation = function() {
+    if (!$scope.form || $scope.form.user == '') {
+      $scope.userMsg = '用户名不能为空！';
+    } else {
+      $scope.userMsg = undefined;
+    }
+    activeSubmitBtn();
+  };
+
+  $scope.passValidation = function() {
+    if (!$scope.form || $scope.form.pass == '') {
+      $scope.passMsg = '密码不能为空！';
+    } else {
+      $scope.passMsg = undefined;
+    }
+    activeSubmitBtn();
+  };
+
+  $scope.codeValidation = function() {
+    if (!$scope.form || ($scope.form.code.toLocaleUpperCase() != $scope.code && $scope.form.code.length >= 6)) {
+      $scope.codeMsg = '验证码输入不正确！';
+    } else {
+      $scope.codeMsg = undefined;
+    }
+    if($scope.form && $scope.form.code.length >= 6) {
+      activeSubmitBtn();
+    }
+  };
+
+  var activeSubmitBtn = function() {
+    if($scope.userMsg || $scope.passMsg || $scope.codeMsg) {
+      $scope.loginDisabled = true;
+    }else{
+      $scope.loginDisabled = false;
+    }
+  };
 
   $scope.login = function () {
     AuthSrv.login($scope.form.user, $scope.form.pass)
@@ -18,27 +60,33 @@ Site.controller('LoginCtrl',['$scope', 'AuthSrv', '$state', function ($scope, Au
         if (redirectUrl) {
           $location.path(redirectUrl);
         } else {
-          switch(user.position) {
-            case 'teacher':
-              $state.go('teacher',{id: user.userId});
-              break;
-            case 'student':
-              $state.go('student.center',{id: user.userId});
-              break;
-            case 'admin':
-              $state.go('admin.center',{id: user.userId});
-              break;
-            case 'systemAdmin':
-              $state.go('systemadmin.center',{id: user.userId});
-              break;
-          }
+          $state.go('teacher.home', {id: user.userId});
         }
       })
-      .catch(function () {
-        $scope.loginFailed = true;
-      })
-      .finally(function () {
-        $scope.loggingIn = false;
-      });
   };
+
+  $scope.createCode = function () {
+    $scope.code = "";
+    var codeLength = 6;//验证码的长度
+    var checkCode = document.getElementById("checkCode");
+    var selectChar = new Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z');//所有候选组成验证码的字符，当然也可以用中文的
+    for (var i = 0; i < codeLength; i++) {
+      var charIndex = Math.floor(Math.random() * 36);
+      $scope.code += selectChar[charIndex];
+    }
+    if (checkCode) {
+      checkCode.className = "code";
+      checkCode.value = $scope.code;
+      checkCode.blur();
+    }
+  };
+
+  $scope.forgotPassword = function () {
+    //TODO
+  };
+
+  // init
+  $scope.createCode();
+
+
 }]);

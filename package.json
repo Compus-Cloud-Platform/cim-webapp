@@ -1,10 +1,10 @@
 {
-  "name": "cim-webapp",
+  "name": "school-webapp",
   "version": "0.0.1",
   "description": "CIM - Compus Information Managerment",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Compus-Cloud-Platform/cim-webapp"
+    "url": "https://github.com/Compus-Cloud-Platform/school-webapp"
   },
   "author": "CIM",
   "license": "BSD-2-Clause",

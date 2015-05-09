@@ -1,12 +1,13 @@
 /* login page */
 .container-green {
     background: linear-gradient(135deg, #12a37f 0%,#41af48 100%);
-    min-height: 800px;
+    min-height: 650px;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#12a37f',EndColorStr='#41af48', GradientType=1);
 }
 .container-green h2{
     color: #FFF;
     text-align: center;
-    padding-top: 30px;
+    padding-top: 50px;
     margin: 0;
 }
 .container-green .login-form{
@@ -17,20 +18,35 @@
     top: 25px;
     border-radius: 4px;
 }
-.login-form legend{
-    padding: 5px 10px;
-}
-.login-form .form-horizontal .form-group {
-    margin-left: 0;
-    margin-right: 0;
-}
-.login-form .form-group .control-label {
-    padding-right: 0px;
-    padding-left: 0px;
-}
 .login-form .form-group i {
     font-size: 18px;
 }
 .login-form .form-group a {
     margin-left: 13px;
+}
+.login-form .form-group span {
+    padding: 0;
+    margin: 0;
+}
+.login-form .code
+{
+    font-family:Arial;
+    font-style:italic;
+    color:#FF0000;
+    padding:2px 10px;
+    letter-spacing:3px;
+    font-weight:bolder;
+    cursor: pointer;
+    width: 100px;
+    margin-left: 10px;
+    background: #EFEFEF;
+    border: none;
+    height: 30px;
+}
+.login-form .error-msg{
+    position: absolute;
+    top: -15px;
+    font-size: 12px;
+    color: red;
+    right: 25px;
 }

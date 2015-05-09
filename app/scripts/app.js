@@ -2,23 +2,18 @@
 
 /**
  * @ngdoc overview
- * @name cimWebappApp
+ * @name webApp
  * @description
- * # cimWebappApp
+ * # webApp
  *
  * Main module of the application.
  */
 var Site = angular.module('Site', [
   'ngAnimate',
-  'ngCookies',
-  'ngResource',
   'ngRoute',
   'ngSanitize',
-  'ngTouch',
-  'ui.router',
-  'smart-table',
-  "com.2fdevs.videogular",
-  "treeControl"
+  'ngCookies',
+  'ui.router'
 ]);
 
 Site.config(
@@ -27,18 +22,31 @@ Site.config(
       "use strict";
 
       $stateProvider
-        .state('teacher', {url: '/teacher/:id', templateUrl: 'views/teacher/home.html'})
-        .state('teacher-course', {url: '/teacher/:id/course-manager', templateUrl: 'views/teacher/course.manager.html'})
-        .state('teacher-course-group', {url: '/teacher/:id/course-group', templateUrl: 'views/teacher/course.group.html'})
-        .state('teacher-name-edit', {url: '/teacher/:id/name-edit', templateUrl: 'views/teacher/name.edit.html'})
-        .state('teacher-seat-edit', {url: '/teacher/:id/seat-edit', templateUrl: 'views/teacher/seat.edit.html'})
-        .state('teacher-student-add', {url: '/teacher/:id/student-add', templateUrl: 'views/teacher/student.add.html'})
-        .state('teacher-group', {url: '/teacher/:id/group-manager', templateUrl: 'views/teacher/group.manager.html'})
-        .state('teacher-video', {url: '/teacher/:id/video-home', templateUrl: 'views/teacher/video.home.html'})
-        .state('teacher-video-detail', {url: '/teacher/:id/video-detail/:vid', templateUrl: 'views/teacher/video.detail.html'})
-        .state('teacher-textbook', {url: '/teacher/:id/textbook', templateUrl: 'views/teacher/textbook.html'})
-        .state('teacher-textbook-share', {url: '/teacher/:id/textbook-share', templateUrl: 'views/teacher/textbook.share.html'})
-        .state('teacher-paper-personage', {url: '/teacher/:id/paper-personage', templateUrl: 'views/teacher/paper.personage.html'})
+        .state('admin', {abstract: true, url: '/admin/:id', templateUrl: 'views/wrap.html'})
+        .state('admin.home', {url: '', templateUrl: 'views/admin/home.html'})
+        .state('admin.teacher', {url: '/teacher-manager', templateUrl: 'views/admin/teacher.manager.html'})
+        .state('admin.student', {url: '/student-manager', templateUrl: 'views/admin/student.manager.html'})
+        .state('admin.school', {url: '/school-manager', templateUrl: 'views/admin/school.manager.html'})
+        .state('admin.class', {url: '/class-manager', templateUrl: 'views/admin/class.manager.html'})
+        .state('admin.textbook', {url: '/textbook-manager', templateUrl: 'views/admin/textbook.manager.html'})
+        .state('admin.chapter', {url: '/chapter-manager', templateUrl: 'views/admin/chapter.manager.html'})
+        .state('admin.class-textbook', {url: '/class-textbook', templateUrl: 'views/admin/class.textbook.relation.html'})
+        .state('admin.teacher-class', {url: '/teacher-class', templateUrl: 'views/admin/teacher.class.relation.html'})
+        .state('admin.video', {url: '/video-manager', templateUrl: 'views/admin/video.manager.html'})
+        .state('admin.upload', {url: '/video-upload', templateUrl: 'views/admin/video.upload.html'})
+        .state('admin.player', {url: '/video-player/:id', templateUrl: 'views/admin/video.player.html'})
+        .state('admin.profile', {url: '/profile', templateUrl: 'views/admin/profile.html'})
+        .state('teacher', {abstract: true, url: '/teacher/:id', templateUrl: 'views/wrap.html'})
+        .state('teacher.home', {url: '', templateUrl: 'views/teacher/home.html'})
+        .state('teacher.course-manager', {url: '/course-manager', templateUrl: 'views/teacher/course.manager.html'})
+        .state('teacher.course-group', {url: '/course-group', templateUrl: 'views/teacher/course.group.html'})
+        .state('teacher.group-manager', {url: '/group-manager', templateUrl: 'views/teacher/group.manager.html'})
+        .state('teacher.name-edit', {url: '/name-edit', templateUrl: 'views/teacher/name.edit.html'})
+        .state('teacher.paper-personage', {url: '/paper-personage', templateUrl: 'views/teacher/paper.personage.html'})
+        .state('teacher.seat-edit', {url: '/seat-edit', templateUrl: 'views/teacher/seat.edit.html'})
+        .state('teacher.student-add', {url: '/student-add', templateUrl: 'views/teacher/student.add.html'})
+        .state('teacher.textbook-manager', {url: '/textbook-manager', templateUrl: 'views/teacher/textbook.manager.html'})
+        .state('teacher.textbook-share', {url: '/textbook-share', templateUrl: 'views/teacher/textbook.share.html'})
 
         .state('login', {url: '/login', templateUrl: 'views/login.html', controller: 'LoginCtrl'});
       $urlRouterProvider.otherwise('/login');
