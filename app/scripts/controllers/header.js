@@ -24,7 +24,7 @@ Site.controller('HeaderCtrl', ['$scope', 'AuthSrv', '$state', function ($scope, 
         {name: "课程影音历程", link: "teacher.video-home"},
         {name: "个人影音管理", link: "teacher.video-home"},
         {name: "共享视频资源", link: "teacher.video-home"},
-        {name: "视频上传", link: "teacher.resource-upload"}
+        {name: "视频上传", link: "teacher.resource-upload`"}
       ]
     },
     {

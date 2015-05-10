@@ -33,7 +33,7 @@ Site.controller('LoginCtrl', ['$scope', 'AuthSrv', '$state', '$location', functi
   };
 
   $scope.codeValidation = function() {
-    if (!$scope.form || ($scope.form.code.toLocaleUpperCase() != $scope.code && $scope.form.code.length >= 6)) {
+    if ($scope.form || ($scope.form.code.toLocaleUpperCase() != $scope.code && $scope.form.code.length >= 6)) {
       $scope.codeMsg = '验证码输入不正确！';
     } else {
       $scope.codeMsg = undefined;
@@ -60,7 +60,20 @@ Site.controller('LoginCtrl', ['$scope', 'AuthSrv', '$state', '$location', functi
         if (redirectUrl) {
           $location.path(redirectUrl);
         } else {
-          $state.go('teacher.home', {id: user.userId});
+          switch(user.position) {
+            case 'teacher':
+              $state.go('teacher.home',{id: user.userId});
+              break;
+            case 'student':
+              $state.go('student.home',{id: user.userId});
+              break;
+            case 'admin':
+              $state.go('admin.home',{id: user.userId});
+              break;
+            case 'superAdmin':
+              $state.go('super-admin.home',{id: user.userId});
+              break;
+          }
         }
       })
   };

@@ -52,6 +52,10 @@ Site.config(
         .state('teacher.video-home', {url: '/video-home', templateUrl: 'views/teacher/video.home.html'})
         .state('teacher.video-player', {url: '/video-player/:id', templateUrl: 'views/teacher/video.player.html'})
         .state('teacher.resource-upload', {url: '/resource-upload', templateUrl: 'views/teacher/resource.upload.html'})
+        .state('student', {abstract: true, url: '/student/:id', templateUrl: 'views/wrap.html'})
+        .state('student.home', {url: '', templateUrl: 'views/student/home.html'})
+        .state('super-admin', {abstract: true, url: '/super-admin/:id', templateUrl: 'views/wrap.html'})
+        .state('super-admin.home', {url: '', templateUrl: 'views/super-admin/home.html'})
 
         .state('login', {url: '/login', templateUrl: 'views/login.html', controller: 'LoginCtrl'});
       $urlRouterProvider.otherwise('/login');
