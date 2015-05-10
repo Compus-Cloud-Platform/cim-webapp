@@ -49,6 +49,9 @@ Site.config(
         .state('teacher.student-add', {url: '/student-add', templateUrl: 'views/teacher/student.add.html'})
         .state('teacher.textbook-manager', {url: '/textbook-manager', templateUrl: 'views/teacher/textbook.manager.html'})
         .state('teacher.textbook-share', {url: '/textbook-share', templateUrl: 'views/teacher/textbook.share.html'})
+        .state('teacher.video-home', {url: '/video-home', templateUrl: 'views/teacher/video.home.html'})
+        .state('teacher.video-player', {url: '/video-player/:id', templateUrl: 'views/teacher/video.player.html'})
+        .state('teacher.resource-upload', {url: '/resource-upload', templateUrl: 'views/teacher/resource.upload.html'})
 
         .state('login', {url: '/login', templateUrl: 'views/login.html', controller: 'LoginCtrl'});
       $urlRouterProvider.otherwise('/login');

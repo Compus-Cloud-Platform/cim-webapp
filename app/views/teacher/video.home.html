@@ -4,7 +4,7 @@
     <div class="mid-content col-sm-8">
         <div ng-include="'views/notice.html'"></div>
         <!-- To be filled part Start-->
-        <div class="common-container video-page" data-ng-controller="VideoHomeCtrl as controller">
+        <div class="common-container video-page" data-ng-controller="VideoManagerCtrl">
             <div class="panel panel-default no-border">
                 <div class="panel-heading">
                     <h3 class="panel-title">公共视频资源</h3>
@@ -13,11 +13,11 @@
                     <section class="row">
                         <div class="col-sm-3" ng-repeat="item in shareVideos">
                             <article class="template">
-                                <header ui-sref="teacher-video-detail({id:userData.userId, vid: item.id})">
+                                <header ui-sref="teacher.video-player({id:userData.userId, vid: item.id})">
                                     <img src="images/video-thumb.jpg" class="img-responsive" style="cursor: pointer;"/>
 
                                     <div class="album-options">
-                                        <a ui-sref="teacher-video-detail({id:userData.userId, vid: item.id})">{{item.name}}</a>
+                                        <a ui-sref="teacher.video-player({id:userData.userId, vid: item.id})">{{item.name}}</a>
                                     </div>
                                 </header>
                                 <div class="album-info clearfix">
@@ -40,11 +40,11 @@
                     <section class="row">
                         <div class="col-sm-3" ng-repeat="item in shareVideos">
                             <article class="template">
-                                <header ui-sref="teacher-video-detail({id:userData.userId, vid: item.id})">
+                                <header ui-sref="teacher.video-player({id:userData.userId, vid: item.id})">
                                     <img src="images/video-thumb.jpg" class="img-responsive" style="cursor: pointer;"/>
 
                                     <div class="album-options">
-                                        <a ui-sref="teacher-video-detail({id:userData.userId, vid: item.id})">{{item.name}}</a>
+                                        <a ui-sref="teacher.video-player({id:userData.userId, vid: item.id})">{{item.name}}</a>
                                     </div>
                                 </header>
                                 <div class="album-info clearfix">
