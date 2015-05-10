@@ -13,7 +13,9 @@ var Site = angular.module('Site', [
   'ngRoute',
   'ngSanitize',
   'ngCookies',
-  'ui.router'
+  'ui.router',
+  'smart-table',
+  "treeControl"
 ]);
 
 Site.config(
