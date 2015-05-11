@@ -5,7 +5,7 @@ var express = require("express")
   //, Compression = require('compression')
   //, BodyParser = require('body-parser');
 
-var DEFAULT_PORT = 8078;
+var DEFAULT_PORT = 8068;
 
 /**
  * catch uncaught exceptions
