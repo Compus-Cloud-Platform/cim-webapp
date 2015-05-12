@@ -12,6 +12,9 @@ body {
 .relative {
     position: relative;
 }
+.pointer {
+    cursor: pointer;
+}
 
 /*
  * common icons
@@ -50,12 +53,6 @@ body {
 .form-horizontal .control-label {
     padding-right: 0px;
     padding-top: 5px;
-}
-
-.form-control{
-    line-height: 30px;
-    height: 30px;
-    padding: 4px 5px;
 }
 
 .form-group {

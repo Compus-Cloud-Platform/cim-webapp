@@ -82,25 +82,27 @@ Site.controller('HeaderCtrl', ['$scope', 'AuthSrv', '$state', function ($scope, 
   var studentArray = [];
   var adminArray = [];
 
-  $scope.now = moment().format();
-
   var initLayout = function () {
     var user = $scope.userData;
     switch (user.position) {
       case 'teacher':
         $scope.positionDisplayed = '老师';
+        $scope.positionPath = 'teacher.home';
         $scope.headerArray = teacherArray;
         break;
       case 'student':
         $scope.positionDisplayed = '学生';
+        $scope.positionPath = 'student.home';
         $scope.headerArray = studentArray;
         break;
       case 'admin':
         $scope.positionDisplayed = '管理员';
+        $scope.positionPath = 'admin.home';
         $scope.headerArray = adminArray;
         break;
       case 'superAdmin':
         $scope.positionDisplayed = '系统管理员';
+        $scope.positionPath = 'super-admin.home';
         $scope.headerArray = superAdminArray;
         break;
     }
