@@ -1,0 +1,43 @@
+<div class="row">
+    <!-- left slide bar-->
+    <div ng-include="'views/leftbar.html'"></div>
+    <div class="mid-content col-sm-8">
+        <div ng-include="'views/notice.html'"></div>
+        <!-- To be filled part Start-->
+        <div class="" data-ng-controller="SuperAdminHomeCtrl">
+            <div class="panel panel-default">
+                <div class="panel-heading"><span class="icon-share2"></span>组织机构列表</div>
+                <div class="panel-body">
+                    <table st-table="organizations" class="table table-striped table-hover ">
+                        <thead>
+                        <tr>
+                            <th st-sort="name" class="col-sm-2 ">名字</th>
+                            <th st-sort="code" class="col-sm-2">代号</th>
+                            <th class="col-sm-2">网址</th>
+                            <th class="col-sm-2">电话</th>
+                            <th st-sort="operId" class="col-sm-2">创建者</th>
+                            <th st-sort="createDate" class="col-sm-2">创建时间</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="item in organizations">
+                            <td><a ui-sref="super-admin.org-detail({id:item.id})" title="详细信息">{{item.name}}</a></td>
+                            <td>{{item.code}}</td>
+                            <td><a href="{{item.webSite}}" title="官方网站">{{item.webSite}}</a></td>
+                            <td>{{item.phone}}</td>
+                            <td>{{item.operId}}</td>
+                            <td>{{item.createDate}}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="align-right"><a href="javascript:void(0)">查看全部<span class="icon-forward"></span></a></div>
+
+                </div>
+            </div>
+        </div>
+        <!-- To be filled part End-->
+    </div>
+    <!-- right slide bar-->
+    <div ng-include="'views/rightbar.html'"></div>
+</div>

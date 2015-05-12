@@ -10,13 +10,15 @@
 Site.controller('HeaderCtrl', ['$scope', 'AuthSrv', '$state', function ($scope, AuthSrv, $state) {
   console.log("HeaderCtrl");
 
-  $scope.userData = {userId: "SG0822888", name: "ruigao", password: "19851012", position: "teacher"};
+  //position: teacher, super-admin, admin, student
+  $scope.userData = {userId: "SG0822888", name: "ruigao", password: "19851012", position: "superAdmin"};
 
-  $scope.checkAuth = function() {
+  $scope.checkAuth = function () {
     console.log('test auth');
   };
 
-  $scope.headerArray = [
+
+  var teacherArray = [
     {
       name: "影音资源平台",
       subList: [
@@ -68,6 +70,42 @@ Site.controller('HeaderCtrl', ['$scope', 'AuthSrv', '$state', function ($scope, 
     }
   ];
 
+  var superAdminArray = [
+    {
+      name: "组织机构管理",
+      subList: [
+        {name: "组织机构列表", link: "super-admin.org-list"},
+        {name: "新增组织机构", link: "super-admin.org-add"}
+      ]
+    }
+  ];
+  var studentArray = [];
+  var adminArray = [];
+
+  $scope.now = moment().format();
+
+  var initLayout = function () {
+    var user = $scope.userData;
+    switch (user.position) {
+      case 'teacher':
+        $scope.positionDisplayed = '老师';
+        $scope.headerArray = teacherArray;
+        break;
+      case 'student':
+        $scope.positionDisplayed = '学生';
+        $scope.headerArray = studentArray;
+        break;
+      case 'admin':
+        $scope.positionDisplayed = '管理员';
+        $scope.headerArray = adminArray;
+        break;
+      case 'superAdmin':
+        $scope.positionDisplayed = '系统管理员';
+        $scope.headerArray = superAdminArray;
+        break;
+    }
+  };
+
   $scope.profile = [
     {name: "公布栏", link: "teacher.video"},
     {name: "行事历", link: "teacher.video"},
@@ -90,6 +128,11 @@ Site.controller('HeaderCtrl', ['$scope', 'AuthSrv', '$state', function ($scope, 
     {name: "网络技术", code: "12345"},
     {name: "数据机构", code: "12345"}
   ];
+
+  /*
+   ** initialize layout
+   */
+  initLayout();
 
 
 }]);

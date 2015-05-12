@@ -6,8 +6,8 @@ Site.constant('ConfigConst', (function () {
   var _env = 'dev';  //DEV or PRD
 
   var _devURLs = {
-    api: 'http://localhost:8078/data/api/',
-    baseUrl: 'http://localhost:8078/'
+    api: 'http://localhost:8068/data/api/',
+    baseUrl: 'http://localhost:8068/'
   };
 
   var _prdURLs = {
