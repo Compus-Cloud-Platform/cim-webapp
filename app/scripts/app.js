@@ -57,9 +57,9 @@ Site.config(
         .state('super-admin', {abstract: true, url: '/super-admin/:id', templateUrl: 'views/wrap.html'})
         .state('super-admin.home', {url: '', templateUrl: 'views/super-admin/home.html'})
         .state('super-admin.org-list', {url: '/org-list', templateUrl: 'views/super-admin/org-list.html'})
-        .state('super-admin.org-detail', {url: '/org-detail/:id', templateUrl: 'views/super-admin/org-detail.html'})
+        .state('super-admin.org-detail', {url: '/org-detail/:orgId', templateUrl: 'views/super-admin/org-detail.html'})
         .state('super-admin.org-add', {url: '/org-add', templateUrl: 'views/super-admin/org-add.html'})
-        .state('super-admin.org-edit', {url: '/org-edit/:id', templateUrl: 'views/super-admin/org-edit.html'})
+        .state('super-admin.org-edit', {url: '/org-edit/:orgId', templateUrl: 'views/super-admin/org-edit.html'})
 
         .state('login', {url: '/login', templateUrl: 'views/login.html', controller: 'LoginCtrl'});
       $urlRouterProvider.otherwise('/login');

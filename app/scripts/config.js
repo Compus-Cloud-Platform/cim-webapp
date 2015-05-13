@@ -6,7 +6,7 @@ Site.constant('ConfigConst', (function () {
   var _env = 'dev';  //DEV or PRD
 
   var _devURLs = {
-    api: 'http://localhost:8068/data/api/',
+    api: 'http://localhost:9000/services/cim-services/rest/v1/',
     baseUrl: 'http://localhost:8068/'
   };
 

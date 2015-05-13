@@ -4,14 +4,65 @@
     <div class="mid-content col-sm-8">
         <div ng-include="'views/notice.html'"></div>
         <!-- To be filled part Start-->
-        <div class="" data-ng-controller="StudentHomeCtrl">
+        <div class="" data-ng-controller="OrganizationCtrl">
             <div class="panel panel-default">
-                <div class="panel-heading"><span class="icon-share2"></span>系统功能总览</div>
-                <div class="panel-body">
-                    <h1>Super Admin系统功能总览</h1>
-
-                    <div class="align-right"><a href="javascript:void(0)">查看全部<span class="icon-forward"></span></a>
+                <div class="panel-heading relative">
+                    <span class="icon-share2"></span>新增组织机构
+                    <div class="align-right">
+                        <a class="text-decoration" ui-sref="super-admin.org-list({id:userData.userId})">返回<span class="icon-forward"></span></a>
                     </div>
+                </div>
+                <div class="panel-body">
+                    <form class="form-horizontal" id="addForm">
+                        <fieldset class="col-sm-12">
+                            <div class="form-group">
+                                <label for="name" class="col-sm-2 control-label">名字</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control input-sm" id="name" ng-model="form.name">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="code" class="col-sm-2 control-label">编号</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control input-sm" id="code" ng-model="form.code">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone" class="col-sm-2 control-label">电话</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control input-sm" id="phone" ng-model="form.phone">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="fax" class="col-sm-2 control-label">传真</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control input-sm" id="fax" ng-model="form.fax">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="address" class="col-sm-2 control-label">地址</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control input-sm" id="address" ng-model="form.address">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="webSite" class="col-sm-2 control-label">网址</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control input-sm" id="webSite" ng-model="form.webSite">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="description" class="col-sm-2 control-label">简介</label>
+                                <div class="col-sm-10">
+                                    <textarea class="form-control input-sm" id="description" ng-model="form.description"></textarea>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-sm-offset-2">
+                                <button type="submit" class="btn btn-primary" data-ng-click="save()">保存</button>
+                                <button type="reset" class="btn btn-default">重置</button>
+                            </div>
+                        </fieldset>
+                    </form>
                 </div>
             </div>
         </div>
