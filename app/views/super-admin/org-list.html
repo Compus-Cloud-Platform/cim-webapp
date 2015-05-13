@@ -17,6 +17,7 @@
                             </th>
                         </tr>
                         <tr>
+                            <th></th>
                             <th st-sort="name" class="col-sm-2 pointer">名字</th>
                             <th st-sort="code" class="col-sm-2 pointer">编号</th>
                             <th class="col-sm-2">网址</th>
@@ -27,6 +28,7 @@
                         </thead>
                         <tbody>
                         <tr ng-repeat="item in organizations">
+                            <td><input type="checkbox" ng-model="item.selected"/></td>
                             <td><a ui-sref="super-admin.org-detail({id:userData.id, orgId:item.id})" title="详细信息">{{item.name}}</a></td>
                             <td>{{item.code}}</td>
                             <td><a href="{{item.webSite}}" title="官方网站" target="_blank">{{item.webSite}}</a></td>
@@ -35,6 +37,14 @@
                             <td>{{item.createDate}}</td>
                         </tr>
                         </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="6">
+                                    <input type="checkbox" ng-model="selectedAll" ng-click="checkAll()"/>
+                                    <a href="javascript:void(0)" data-ng-click="deleteItems()">删除</a>
+                                </td>
+                            </tr>
+                        </tfoot>
                     </table>
 
                     <div class="align-right"><a href="javascript:void(0)">查看全部<span class="icon-forward"></span></a></div>

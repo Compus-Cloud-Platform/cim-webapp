@@ -7,7 +7,7 @@
  * # OrganizationCtrl
  * Controller of the webApp
  */
-Site.controller('OrganizationCtrl', ['$scope', '$state', '$location', '$stateParams', 'organizationSrv', function ($scope, $state, $location, $stateParams, organizationSrv) {
+Site.controller('OrganizationCtrl', ['$scope', '$state', '$location', '$stateParams', '$q', 'organizationSrv', function ($scope, $state, $location, $stateParams, $q, organizationSrv) {
   console.log('OrganizationCtrl');
 
   var orgId = $stateParams.orgId;
@@ -15,19 +15,7 @@ Site.controller('OrganizationCtrl', ['$scope', '$state', '$location', '$statePar
   var userId = $scope.userData.id;
 
   if (path.indexOf('org-list') > 0) {
-    organizationSrv.getAllOrganizations()
-      .then(function (res) {
-        if (res.ack == 'success') {
-          $scope.organizations = res.data;
-          // default sort column
-          $scope.getters = {
-            name: function (value) {
-              //this will sort by the length of the first name string
-              return value.name.length;
-            }
-          };
-        }//if
-      });
+    getAllOrgs();
   }
 
   //
@@ -39,6 +27,27 @@ Site.controller('OrganizationCtrl', ['$scope', '$state', '$location', '$statePar
         }
       });
   }
+
+  $scope.checkAll = function () {
+    $scope.selectedAll = !$scope.selectedAll;
+    angular.forEach($scope.organizations, function (item) {
+      item.selected = $scope.selectedAll;
+    });
+  };
+
+  $scope.deleteItems = function () {
+    var promiseArray = [];
+    var organizations = _.filter($scope.organizations, {'selected': true});
+    _.forEach(organizations, function (item) {
+      promiseArray.push(organizationSrv.deleteOrganization(item.id));
+    });
+    $q.all(promiseArray)
+      .then(function (responseArray) {
+        if (responseArray.length == organizations.length) {
+          $scope.organizations = _.xor($scope.organizations, organizations);
+        }
+      })
+  };
 
   // create
   $scope.create = function () {
@@ -55,7 +64,7 @@ Site.controller('OrganizationCtrl', ['$scope', '$state', '$location', '$statePar
 
   // update
   $scope.update = function (orgId) {
-    var organization = _.pick($scope.organization,['name','code','phone','fax', 'address', 'webSite', 'description']);
+    var organization = _.pick($scope.organization, ['name', 'code', 'phone', 'fax', 'address', 'webSite', 'description']);
     organizationSrv.updateOrganization(orgId, organization)
       .then(function (res) {
         if (res.ack == 'success') {
@@ -65,13 +74,30 @@ Site.controller('OrganizationCtrl', ['$scope', '$state', '$location', '$statePar
   };
 
   // Delete
-  $scope.Delete = function (orgId) {
+  $scope.delete = function (orgId) {
     organizationSrv.deleteOrganization(orgId)
       .then(function (res) {
         if (res.ack == 'success') {
           var b = res.data;
+          $state.go('super-admin.org-list', {id: userId});
         }
       });
   };
+
+  function getAllOrgs() {
+    organizationSrv.getAllOrganizations()
+      .then(function (res) {
+        if (res.ack == 'success') {
+          $scope.organizations = res.data;
+          // default sort column
+          $scope.getters = {
+            name: function (value) {
+              //this will sort by the length of the first name string
+              return value.name.length;
+            }
+          };
+        }//if
+      });
+  }
 
 }]);
