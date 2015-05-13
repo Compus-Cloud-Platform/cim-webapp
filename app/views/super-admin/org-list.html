@@ -18,12 +18,11 @@
                         </tr>
                         <tr>
                             <th></th>
-                            <th st-sort="name" class="col-sm-2 pointer">名字</th>
+                            <th st-sort="name" class="col-sm-3 pointer">名字</th>
                             <th st-sort="code" class="col-sm-2 pointer">编号</th>
-                            <th class="col-sm-2">网址</th>
+                            <th class="col-sm-3">网址</th>
                             <th class="col-sm-2">电话</th>
                             <th st-sort="operId" class="col-sm-2 pointer">创建者</th>
-                            <th st-sort="createDate" class="col-sm-2 pointer">创建日期</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -34,7 +33,6 @@
                             <td><a href="{{item.webSite}}" title="官方网站" target="_blank">{{item.webSite}}</a></td>
                             <td>{{item.phone}}</td>
                             <td>{{item.operId}}</td>
-                            <td>{{item.createDate}}</td>
                         </tr>
                         </tbody>
                         <tfoot>

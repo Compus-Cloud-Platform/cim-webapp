@@ -23,7 +23,9 @@ Site.controller('OrganizationCtrl', ['$scope', '$state', '$location', '$statePar
     organizationSrv.getOrganizationById(orgId)
       .then(function (res) {
         if (res.ack == 'success') {
-          $scope.organization = res.data[0];
+          var organization = res.data[0];
+          organization.createDate = moment().format('LLLL');
+          $scope.organization = organization;
         }
       });
   }
