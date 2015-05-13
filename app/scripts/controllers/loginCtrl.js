@@ -62,16 +62,16 @@ Site.controller('LoginCtrl', ['$scope', 'AuthSrv', '$state', '$location', functi
         } else {
           switch(user.position) {
             case 'teacher':
-              $state.go('teacher.home',{id: user.userId});
+              $state.go('teacher.home',{id: user.id});
               break;
             case 'student':
-              $state.go('student.home',{id: user.userId});
+              $state.go('student.home',{id: user.id});
               break;
             case 'admin':
-              $state.go('admin.home',{id: user.userId});
+              $state.go('admin.home',{id: user.id});
               break;
             case 'superAdmin':
-              $state.go('super-admin.home',{id: user.userId});
+              $state.go('super-admin.home',{id: user.id});
               break;
           }
         }

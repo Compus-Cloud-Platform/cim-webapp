@@ -16,8 +16,8 @@
                     <div class="stu-option text-right" style="padding-bottom: 10px;padding-right: 15px;">
                         <a type="button" data-toggle="modal" data-target="#add" style="cursor: pointer;">试题分享</a>
                         <a type="button" data-toggle="modal" data-target="#share" style="cursor: pointer;">删除勾选</a>
-                        <a ui-sref="teacher-name-edit({id:userData.userId})">模拟测验设定</a>
-                        <a ui-sref="teacher-seat-edit({id:userData.userId})">试卷上传</a>
+                        <a ui-sref="teacher-name-edit({id:userData.id})">模拟测验设定</a>
+                        <a ui-sref="teacher-seat-edit({id:userData.id})">试卷上传</a>
                         <a type="button" data-toggle="modal" data-target="#edit" style="cursor: pointer;">新增试卷</a>
                     </div>
                     <div class="stu-list">
@@ -41,9 +41,9 @@
                                 <td>{{item.type}}</td>
                                 <td>{{item.date}}</td>
                                 <td>{{item.count}}</td>
-                                <td><a ui-sref="teacher-textbook({id:userData.userId})">复制</a></td>
-                                <td><a ui-sref="teacher-textbook({id:userData.userId})">更名</a></td>
-                                <td><a ui-sref="teacher-textbook({id:userData.userId})">下载</a></td>
+                                <td><a ui-sref="teacher-textbook({id:userData.id})">复制</a></td>
+                                <td><a ui-sref="teacher-textbook({id:userData.id})">更名</a></td>
+                                <td><a ui-sref="teacher-textbook({id:userData.id})">下载</a></td>
                             </tr>
                             </tbody>
                         </table>

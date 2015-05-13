@@ -11,7 +11,7 @@ Site.controller('HeaderCtrl', ['$scope', 'AuthSrv', '$state', function ($scope, 
   console.log("HeaderCtrl");
 
   //position: teacher, super-admin, admin, student
-  $scope.userData = {userId: "SG0822888", name: "ruigao", password: "19851012", position: "superAdmin"};
+  $scope.userData = {id: "1", name: "ruigao", password: "19851012", position: "superAdmin"};
 
   $scope.checkAuth = function () {
     console.log('test auth');

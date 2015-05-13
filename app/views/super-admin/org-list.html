@@ -27,7 +27,7 @@
                         </thead>
                         <tbody>
                         <tr ng-repeat="item in organizations">
-                            <td><a ui-sref="super-admin.org-detail({id:userData.userId, orgId:item.id})" title="详细信息">{{item.name}}</a></td>
+                            <td><a ui-sref="super-admin.org-detail({id:userData.id, orgId:item.id})" title="详细信息">{{item.name}}</a></td>
                             <td>{{item.code}}</td>
                             <td><a href="{{item.webSite}}" title="官方网站" target="_blank">{{item.webSite}}</a></td>
                             <td>{{item.phone}}</td>

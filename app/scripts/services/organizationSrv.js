@@ -18,7 +18,7 @@ Site.factory('organizationSrv', ['$http', '$filter', 'ConfigConst', function ($h
     },
 
     // update organization
-    editOrganization: function (orgId, data) {
+    updateOrganization: function (orgId, data) {
       return $http
         .put(ConfigConst.urls.api + 'organizations/' + orgId, data, {headers: {}})
         .then(function (res) {
