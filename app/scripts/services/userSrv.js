@@ -1,4 +1,4 @@
-Site.factory('OrganizationSrv', ['$http', '$filter', 'ConfigConst', function ($http, $filter, ConfigConst) {
+Site.factory('UserSrv', ['$http', '$filter', 'ConfigConst', function ($http, $filter, ConfigConst) {
   "use strict";
 
   // get the existing session so we have the security token
@@ -6,10 +6,10 @@ Site.factory('OrganizationSrv', ['$http', '$filter', 'ConfigConst', function ($h
 
   return {
 
-    // insert organization
-    insertOrganization: function (data) {
+    // insert user
+    insertUser: function (data) {
       return $http
-        .post(ConfigConst.urls.api + 'organizations', data, {headers: {}})
+        .post(ConfigConst.urls.api + 'users', data, {headers: {}})
         .then(function (res) {
           return res.data;
         }, function (err) {
@@ -17,10 +17,10 @@ Site.factory('OrganizationSrv', ['$http', '$filter', 'ConfigConst', function ($h
         });
     },
 
-    // update organization
-    updateOrganization: function (orgId, data) {
+    // update user
+    updateUser: function (id, data) {
       return $http
-        .put(ConfigConst.urls.api + 'organizations/' + orgId, data, {headers: {}})
+        .put(ConfigConst.urls.api + 'users/' + id, data, {headers: {}})
         .then(function (res) {
           return res.data;
         }, function (err) {
@@ -28,10 +28,10 @@ Site.factory('OrganizationSrv', ['$http', '$filter', 'ConfigConst', function ($h
         });
     },
 
-    // delete organization
-    deleteOrganization: function (orgId) {
+    // delete user
+    deleteUser: function (id) {
       return $http
-        .delete(ConfigConst.urls.api + 'organizations/' + orgId, {headers: {}})
+        .delete(ConfigConst.urls.api + 'users/' + id, {headers: {}})
         .then(function (res) {
           return res.data;
         }, function (err) {
@@ -39,10 +39,10 @@ Site.factory('OrganizationSrv', ['$http', '$filter', 'ConfigConst', function ($h
         });
     },
 
-    // get one organization by id
-    getOrganizationById: function (orgId) {
+    // get one user by id
+    getUserById: function (id) {
       return $http
-        .get(ConfigConst.urls.api + 'organizations/' + orgId, {headers: {}})
+        .get(ConfigConst.urls.api + 'users/' + id, {headers: {}})
         .then(function (res) {
           return res.data;
         }, function (err) {
@@ -50,10 +50,10 @@ Site.factory('OrganizationSrv', ['$http', '$filter', 'ConfigConst', function ($h
         });
     },
 
-    // get all organizations
-    getAllOrganizations: function () {
+    // get all users
+    getAllUsers: function () {
       return $http
-        .get(ConfigConst.urls.api + 'organizations', {headers: {}})
+        .get(ConfigConst.urls.api + 'users', {headers: {}})
         .then(function (res) {
           return res.data;
         }, function (err) {

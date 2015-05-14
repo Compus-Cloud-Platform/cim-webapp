@@ -60,6 +60,10 @@ Site.config(
         .state('super-admin.org-detail', {url: '/org-detail/:orgId', templateUrl: 'views/super-admin/org-detail.html'})
         .state('super-admin.org-add', {url: '/org-add', templateUrl: 'views/super-admin/org-add.html'})
         .state('super-admin.org-edit', {url: '/org-edit/:orgId', templateUrl: 'views/super-admin/org-edit.html'})
+        .state('super-admin.position-list', {url: '/position-list', templateUrl: 'views/super-admin/position-list.html'})
+        .state('super-admin.position-detail', {url: '/position-detail/:posId', templateUrl: 'views/super-admin/position-detail.html'})
+        .state('super-admin.position-add', {url: '/position-add', templateUrl: 'views/super-admin/position-add.html'})
+        .state('super-admin.position-edit', {url: '/position-edit/:posId', templateUrl: 'views/super-admin/position-edit.html'})
 
         .state('login', {url: '/login', templateUrl: 'views/login.html', controller: 'LoginCtrl'});
       $urlRouterProvider.otherwise('/login');

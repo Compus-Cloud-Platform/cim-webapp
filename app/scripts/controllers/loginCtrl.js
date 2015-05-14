@@ -33,7 +33,7 @@ Site.controller('LoginCtrl', ['$scope', 'AuthSrv', '$state', '$location', functi
   };
 
   $scope.codeValidation = function() {
-    if ($scope.form || ($scope.form.code.toLocaleUpperCase() != $scope.code && $scope.form.code.length >= 6)) {
+    if (!$scope.form || ($scope.form.code.toLocaleUpperCase() != $scope.code && $scope.form.code.length >= 6)) {
       $scope.codeMsg = '验证码输入不正确！';
     } else {
       $scope.codeMsg = undefined;
@@ -54,7 +54,8 @@ Site.controller('LoginCtrl', ['$scope', 'AuthSrv', '$state', '$location', functi
   $scope.login = function () {
     AuthSrv.login($scope.form.user, $scope.form.pass)
       .then(function (session) {
-        var user = session.data;
+        var userId = session.data.id;
+
 
         var redirectUrl = undefined;
         if (redirectUrl) {

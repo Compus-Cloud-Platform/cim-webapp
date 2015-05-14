@@ -1,40 +1,26 @@
-Site.factory('AuthSrv', function ($http, ConfigConst) {
+Site.factory('AuthSrv', ['$http', '$filter', 'ConfigConst', function ($http, $filter, ConfigConst) {
   "use strict";
 
-  return function () {
+  // get the existing session so we have the security token
+//  var existingSession = LocalSessionService.getValidSession();
 
+  return {
 
     /**
-     * Send login request to server
+     * format encrpt data, then make rest call
      *
-     * @param data object containing info needed to login
+     * @param userIdOrToken
+     * @param password
      */
-    var getSession = function (data) {
+    login: function (userIdOrToken, password) {
+      var data = {userName: userIdOrToken, password: password};
       return $http
-        .get(ConfigConst.urls.api + 'session.json', data)
+        .post(ConfigConst.urls.api + 'login', data, {headers: {}})
         .then(function (res) {
-          return res;
+          return res.data;
+        }, function (err) {
+          return err;
         });
-    };
-
-    return {
-
-      /**
-       * format encrpt data, then make rest call
-       *
-       * @param userIdOrToken
-       * @param password
-       */
-      login: function (userIdOrToken, password) {
-        var data;
-        var self = this;
-
-        data = { };
-
-        return getSession(data);
-      }
-
-    };
-  }();
-
-});
+    }
+  }
+}]);

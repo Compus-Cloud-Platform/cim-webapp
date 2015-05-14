@@ -1,0 +1,35 @@
+<div class="row">
+    <!-- left slide bar-->
+    <div ng-include="'views/leftbar.html'"></div>
+    <div class="mid-content col-sm-8">
+        <div ng-include="'views/notice.html'"></div>
+        <!-- To be filled part Start-->
+        <div class="" data-ng-controller="PositionCtrl">
+            <div class="panel panel-default">
+                <div class="panel-heading relative">
+                    <span class="icon-share2"></span>职位详细信息
+                    <div class="align-right">
+                        <a class="text-decoration" ui-sref="super-admin.position-edit({id:userData.id, posId:position.id})">编辑<span class="icon-pencil"></span></a>
+                        <a class="text-decoration" href="javascript:void(0)" data-ng-click="delete(position.id)">删除<span class="icon-pencil"></span></a>
+                        <a class="text-decoration" ui-sref="super-admin.position-list({id:userData.id})">返回<span class="icon-forward"></span></a>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <span class="col-left">名字</span>
+                            <span class="col-right">{{position.name}}</span>
+                        </li>
+                        <li class="list-group-item">
+                            <span class="col-left">简介</span>
+                            <span class="col-right">{{position.description}}</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- To be filled part End-->
+    </div>
+    <!-- right slide bar-->
+    <div ng-include="'views/rightbar.html'"></div>
+</div>

@@ -7,7 +7,7 @@
  * # OrganizationCtrl
  * Controller of the webApp
  */
-Site.controller('OrganizationCtrl', ['$scope', '$state', '$location', '$stateParams', '$q', 'organizationSrv', function ($scope, $state, $location, $stateParams, $q, organizationSrv) {
+Site.controller('OrganizationCtrl', ['$scope', '$state', '$location', '$stateParams', '$q', 'OrganizationSrv', function ($scope, $state, $location, $stateParams, $q, OrganizationSrv) {
   console.log('OrganizationCtrl');
 
   var orgId = $stateParams.orgId;
@@ -20,7 +20,7 @@ Site.controller('OrganizationCtrl', ['$scope', '$state', '$location', '$statePar
 
   //
   if (orgId) {
-    organizationSrv.getOrganizationById(orgId)
+    OrganizationSrv.getOrganizationById(orgId)
       .then(function (res) {
         if (res.ack == 'success') {
           var organization = res.data[0];
@@ -41,7 +41,7 @@ Site.controller('OrganizationCtrl', ['$scope', '$state', '$location', '$statePar
     var promiseArray = [];
     var organizations = _.filter($scope.organizations, {'selected': true});
     _.forEach(organizations, function (item) {
-      promiseArray.push(organizationSrv.deleteOrganization(item.id));
+      promiseArray.push(OrganizationSrv.deleteOrganization(item.id));
     });
     $q.all(promiseArray)
       .then(function (responseArray) {
@@ -55,7 +55,7 @@ Site.controller('OrganizationCtrl', ['$scope', '$state', '$location', '$statePar
   $scope.create = function () {
     var organization = $scope.form;
     organization.operId = userId;//TODO
-    organizationSrv.insertOrganization(organization)
+    OrganizationSrv.insertOrganization(organization)
       .then(function (res) {
         if (res.ack == 'success') {
           var orgId = res.data.id;
@@ -67,7 +67,7 @@ Site.controller('OrganizationCtrl', ['$scope', '$state', '$location', '$statePar
   // update
   $scope.update = function (orgId) {
     var organization = _.pick($scope.organization, ['name', 'code', 'phone', 'fax', 'address', 'webSite', 'description']);
-    organizationSrv.updateOrganization(orgId, organization)
+    OrganizationSrv.updateOrganization(orgId, organization)
       .then(function (res) {
         if (res.ack == 'success') {
           $state.go('super-admin.org-detail', {id: userId, orgId: orgId});
@@ -77,7 +77,7 @@ Site.controller('OrganizationCtrl', ['$scope', '$state', '$location', '$statePar
 
   // Delete
   $scope.delete = function (orgId) {
-    organizationSrv.deleteOrganization(orgId)
+    OrganizationSrv.deleteOrganization(orgId)
       .then(function (res) {
         if (res.ack == 'success') {
           var b = res.data;
@@ -87,7 +87,7 @@ Site.controller('OrganizationCtrl', ['$scope', '$state', '$location', '$statePar
   };
 
   function getAllOrgs() {
-    organizationSrv.getAllOrganizations()
+    OrganizationSrv.getAllOrganizations()
       .then(function (res) {
         if (res.ack == 'success') {
           $scope.organizations = res.data;
