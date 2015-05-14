@@ -79,6 +79,13 @@ Site.controller('HeaderCtrl', ['$scope', 'AuthSrv', '$state', function ($scope, 
         {name: "职位列表", link: "super-admin.position-list"},
         {name: "新增职位", link: "super-admin.position-add"}
       ]
+    },
+    {
+      name: "用户管理",
+      subList: [
+        {name: "用户列表", link: "super-admin.user-list"},
+        {name: "新增用户", link: "super-admin.user-add"}
+      ]
     }
   ];
   var studentArray = [];

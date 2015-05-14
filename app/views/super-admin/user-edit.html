@@ -4,12 +4,12 @@
     <div class="mid-content col-sm-8">
         <div ng-include="'views/notice.html'"></div>
         <!-- To be filled part Start-->
-        <div class="" data-ng-controller="OrganizationCtrl">
+        <div class="" data-ng-controller="UserCtrl">
             <div class="panel panel-default">
                 <div class="panel-heading relative">
-                    <span class="icon-share2"></span>组织机构信息变更
+                    <span class="icon-share2"></span>用户信息变更
                     <div class="align-right">
-                        <a class="text-decoration" ui-sref="super-admin.org-list({id:userData.id})">返回<span class="icon-forward"></span></a>
+                        <a class="text-decoration" ui-sref="super-admin.user-list({id:userData.id})">返回<span class="icon-forward"></span></a>
                     </div>
                 </div>
                 <div class="panel-body">
@@ -18,47 +18,41 @@
                             <div class="form-group">
                                 <label for="name" class="col-sm-2 control-label">名字</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control input-sm" id="name" ng-model="organization.name">
+                                    <input type="text" class="form-control input-sm" id="name" ng-model="user.name">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="code" class="col-sm-2 control-label">编号</label>
+                                <label for="loginId" class="col-sm-2 control-label">登录账号</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control input-sm" id="code" ng-model="organization.code">
+                                    <input type="text" class="form-control input-sm" id="loginId" ng-model="user.loginId" disabled>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="phone" class="col-sm-2 control-label">电话</label>
+                                <label for="email" class="col-sm-2 control-label">电子邮件</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control input-sm" id="phone" ng-model="organization.phone">
+                                    <input type="text" class="form-control input-sm" id="email" ng-model="user.email">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="fax" class="col-sm-2 control-label">传真</label>
+                                <label for="positionId" class="col-sm-2 control-label">职位</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control input-sm" id="fax" ng-model="organization.fax">
+                                    <input type="text" class="form-control input-sm" id="positionId" ng-model="user.positionId">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="address" class="col-sm-2 control-label">地址</label>
+                                <label for="employDate" class="col-sm-2 control-label">入校日期</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control input-sm" id="address" ng-model="organization.address">
+                                    <input type="text" class="form-control input-sm" id="employDate" ng-model="user.employDate">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="webSite" class="col-sm-2 control-label">网址</label>
+                                <label for="orgId" class="col-sm-2 control-label">所属组织</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control input-sm" id="webSite" ng-model="organization.webSite">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="description" class="col-sm-2 control-label">简介</label>
-                                <div class="col-sm-10">
-                                    <textarea class="form-control input-sm" id="description" ng-model="organization.description"></textarea>
+                                    <input type="text" class="form-control input-sm" id="orgId" ng-model="user.orgId">
                                 </div>
                             </div>
                             <div class="col-sm-12 col-sm-offset-2">
-                                <button type="submit" class="btn btn-primary" data-ng-click="update(organization.id)">保存</button>
+                                <button type="submit" class="btn btn-primary" data-ng-click="update(user.id)">保存</button>
                                 <!--<button type="reset" class="btn btn-default">重置</button>-->
                             </div>
                         </fieldset>
