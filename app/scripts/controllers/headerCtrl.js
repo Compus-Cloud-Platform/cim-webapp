@@ -10,7 +10,7 @@
 Site.controller('HeaderCtrl', ['$scope', 'AuthSrv', '$state', function ($scope, AuthSrv, $state) {
   console.log("HeaderCtrl");
 
-  //position: teacher, super-admin, admin, student
+  //position: teacher, superAdmin, admin, student
   $scope.userData = {id: "1", name: "ruigao", password: "19851012", position: "superAdmin"};
 
   $scope.checkAuth = function () {
@@ -85,6 +85,13 @@ Site.controller('HeaderCtrl', ['$scope', 'AuthSrv', '$state', function ($scope, 
       subList: [
         {name: "用户列表", link: "super-admin.user-list"},
         {name: "新增用户", link: "super-admin.user-add"}
+      ]
+    },
+    {
+      name: "部门管理",
+      subList: [
+        {name: "部门列表", link: "super-admin.dept-list"},
+        {name: "新增部门", link: "super-admin.dept-add"}
       ]
     }
   ];

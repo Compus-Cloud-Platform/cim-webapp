@@ -68,6 +68,10 @@ Site.config(
         .state('super-admin.user-detail', {url: '/user-detail/:uId', templateUrl: 'views/super-admin/user-detail.html'})
         .state('super-admin.user-add', {url: '/user-add', templateUrl: 'views/super-admin/user-add.html'})
         .state('super-admin.user-edit', {url: '/user-edit/:uId', templateUrl: 'views/super-admin/user-edit.html'})
+        .state('super-admin.dept-list', {url: '/dept-list', templateUrl: 'views/super-admin/dept-list.html'})
+        .state('super-admin.dept-detail', {url: '/dept-detail/:deptId', templateUrl: 'views/super-admin/dept-detail.html'})
+        .state('super-admin.dept-add', {url: '/dept-add', templateUrl: 'views/super-admin/dept-add.html'})
+        .state('super-admin.dept-edit', {url: '/user-dept/:deptId', templateUrl: 'views/super-admin/dept-edit.html'})
 
         .state('login', {url: '/login', templateUrl: 'views/login.html', controller: 'LoginCtrl'});
       $urlRouterProvider.otherwise('/login');
