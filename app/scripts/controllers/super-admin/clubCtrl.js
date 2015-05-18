@@ -90,7 +90,9 @@ Site.controller('ClubCtrl', ['$scope', '$state', '$location', '$stateParams', '$
     ClubSrv.getAllClubs()
       .then(function (res) {
         if (res.ack == 'success') {
-          $scope.clubs = res.data;
+          $scope.rowCollection = res.data;
+          $scope.clubs = [].concat($scope.rowCollection);
+
           // default sort column
           $scope.getters = {
             name: function (value) {

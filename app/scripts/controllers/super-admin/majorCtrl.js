@@ -90,7 +90,8 @@ Site.controller('MajorCtrl', ['$scope', '$state', '$location', '$stateParams', '
     MajorSrv.getAllMajors()
       .then(function (res) {
         if (res.ack == 'success') {
-          $scope.majors = res.data;
+          $scope.rowCollection = res.data;
+          $scope.majors = [].concat($scope.rowCollection);
           // default sort column
           $scope.getters = {
             name: function (value) {

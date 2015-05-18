@@ -91,7 +91,25 @@ Site.controller('HeaderCtrl', ['$scope', 'AuthSrv', '$state', function ($scope, 
       name: "部门管理",
       subList: [
         {name: "部门列表", link: "super-admin.dept-list"},
-        {name: "新增部门", link: "super-admin.dept-add"}
+        {name: "新增部门", link: "super-admin.dept-add"},
+        {name: "专业列表", link: "super-admin.major-list"},
+        {name: "新增专业", link: "super-admin.major-add"}
+      ]
+    },
+    {
+      name: "课程管理",
+      subList: [
+        {name: "课程列表", link: "super-admin.course-list"},
+        {name: "新增课程", link: "super-admin.course-add"}
+      ]
+    },
+    {
+      name: "权限管理",
+      subList: [
+        {name: "角色列表", link: "super-admin.role-list"},
+        {name: "新增角色", link: "super-admin.role-add"},
+        {name: "权限列表", link: "super-admin.permission-list"},
+        {name: "新增权限", link: "super-admin.permission-add"}
       ]
     }
   ];

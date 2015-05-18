@@ -1,0 +1,43 @@
+<div class="row">
+    <!-- left slide bar-->
+    <div ng-include="'views/leftbar.html'"></div>
+    <div class="mid-content col-sm-8">
+        <div ng-include="'views/notice.html'"></div>
+        <!-- To be filled part Start-->
+        <div class="" data-ng-controller="MajorCtrl">
+            <div class="panel panel-default">
+                <div class="panel-heading relative">
+                    <span class="icon-share2"></span>专业详细信息
+                    <div class="align-right">
+                        <a class="text-decoration" ui-sref="super-admin.major-edit({id:userData.id, majorId:major.id})">编辑<span class="icon-pencil"></span></a>
+                        <a class="text-decoration" href="javascript:void(0)" data-ng-click="delete(major.id)">删除<span class="icon-pencil"></span></a>
+                        <a class="text-decoration" ui-sref="super-admin.major-list({id:userData.id})">返回<span class="icon-forward"></span></a>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <span class="col-left">名称</span>
+                            <span class="col-right">{{major.name}}</span>
+                        </li>
+                        <li class="list-group-item">
+                            <span class="col-left">编号</span>
+                            <span>{{major.code}}</span>
+                        </li>
+                        <li class="list-group-item">
+                            <span class="col-left">创建日期</span>
+                            <span class="col-right">{{major.createDate}}</span>
+                        </li>
+                        <li class="list-group-item">
+                            <span class="col-left">简介</span>
+                            <span class="col-right">{{major.description}}</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- To be filled part End-->
+    </div>
+    <!-- right slide bar-->
+    <div ng-include="'views/rightbar.html'"></div>
+</div>

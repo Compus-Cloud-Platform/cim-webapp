@@ -90,7 +90,8 @@ Site.controller('RoleCtrl', ['$scope', '$state', '$location', '$stateParams', '$
     RoleSrv.getAllRoles()
       .then(function (res) {
         if (res.ack == 'success') {
-          $scope.roles = res.data;
+          $scope.rowCollection = res.data;
+          $scope.roles = [].concat($scope.rowCollection);
           // default sort column
           $scope.getters = {
             name: function (value) {

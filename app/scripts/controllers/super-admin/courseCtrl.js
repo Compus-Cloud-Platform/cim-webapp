@@ -90,7 +90,8 @@ Site.controller('CourseCtrl', ['$scope', '$state', '$location', '$stateParams', 
     CourseSrv.getAllCourses()
       .then(function (res) {
         if (res.ack == 'success') {
-          $scope.courses = res.data;
+          $scope.rowCollection = res.data;
+          $scope.courses = [].concat($scope.rowCollection);
           // default sort column
           $scope.getters = {
             name: function (value) {

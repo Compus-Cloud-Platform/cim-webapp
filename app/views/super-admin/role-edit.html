@@ -1,0 +1,49 @@
+<div class="row">
+    <!-- left slide bar-->
+    <div ng-include="'views/leftbar.html'"></div>
+    <div class="mid-content col-sm-8">
+        <div ng-include="'views/notice.html'"></div>
+        <!-- To be filled part Start-->
+        <div class="" data-ng-controller="RoleCtrl">
+            <div class="panel panel-default">
+                <div class="panel-heading relative">
+                    <span class="icon-share2"></span>角色信息变更
+                    <div class="align-right">
+                        <a class="text-decoration" ui-sref="super-admin.role-list({id:userData.id})">返回<span class="icon-forward"></span></a>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <form class="form-horizontal" id="editForm">
+                        <fieldset class="col-sm-12">
+                            <div class="form-group">
+                                <label for="name" class="col-sm-2 control-label">名字</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control input-sm" id="name" ng-model="role.name">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="code" class="col-sm-2 control-label">编号</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control input-sm" id="code" ng-model="role.code">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="description" class="col-sm-2 control-label">简介</label>
+                                <div class="col-sm-10">
+                                    <textarea class="form-control input-sm" id="description" ng-model="role.description"></textarea>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-sm-offset-2">
+                                <button type="submit" class="btn btn-primary" data-ng-click="update(role.id)">保存</button>
+                                <!--<button type="reset" class="btn btn-default">重置</button>-->
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- To be filled part End-->
+    </div>
+    <!-- right slide bar-->
+    <div ng-include="'views/rightbar.html'"></div>
+</div>

@@ -86,11 +86,14 @@ Site.controller('DeptCtrl', ['$scope', '$state', '$location', '$stateParams', '$
       });
   };
 
+  $scope.displayedCollection = [];
   function getAllOrgs() {
     DeptSrv.getAllDepts()
       .then(function (res) {
         if (res.ack == 'success') {
-          $scope.depts = res.data;
+          $scope.rowCollection = res.data;
+          $scope.depts = [].concat($scope.rowCollection);
+
           // default sort column
           $scope.getters = {
             name: function (value) {

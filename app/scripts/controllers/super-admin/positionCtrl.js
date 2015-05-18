@@ -90,7 +90,8 @@ Site.controller('PositionCtrl', ['$scope', '$state', '$location', '$stateParams'
     PositionSrv.getAllPositions()
       .then(function (res) {
         if (res.ack == 'success') {
-          $scope.positions = res.data;
+          $scope.rowCollection = res.data;
+          $scope.positions = [].concat($scope.rowCollection);
           // default sort column
           $scope.getters = {
             name: function (value) {

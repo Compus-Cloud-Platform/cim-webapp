@@ -90,7 +90,8 @@ Site.controller('OrganizationCtrl', ['$scope', '$state', '$location', '$statePar
     OrganizationSrv.getAllOrganizations()
       .then(function (res) {
         if (res.ack == 'success') {
-          $scope.organizations = res.data;
+          $scope.rowCollection = res.data;
+          $scope.organizations = [].concat($scope.rowCollection);
           // default sort column
           $scope.getters = {
             name: function (value) {

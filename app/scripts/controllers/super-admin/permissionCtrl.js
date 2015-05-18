@@ -90,7 +90,8 @@ Site.controller('PermissionCtrl', ['$scope', '$state', '$location', '$stateParam
     PermissionSrv.getAllPermissions()
       .then(function (res) {
         if (res.ack == 'success') {
-          $scope.permissions = res.data;
+          $scope.rowCollection = res.data;
+          $scope.permissions = [].concat($scope.rowCollection);
           // default sort column
           $scope.getters = {
             name: function (value) {

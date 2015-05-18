@@ -92,7 +92,8 @@ Site.controller('UserCtrl', ['$scope', '$state', '$location', '$stateParams', '$
     UserSrv.getAllUsers()
       .then(function (res) {
         if (res.ack == 'success') {
-          $scope.users = res.data;
+          $scope.rowCollection = res.data;
+          $scope.users = [].concat($scope.rowCollection);
           // default sort column
           $scope.getters = {
             name: function (value) {
