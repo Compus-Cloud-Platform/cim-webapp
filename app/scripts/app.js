@@ -80,14 +80,16 @@ Site.config(
         .state('super-admin.course-detail', {url: '/course-detail/:courseId', templateUrl: 'views/super-admin/course-detail.html'})
         .state('super-admin.course-add', {url: '/course-add', templateUrl: 'views/super-admin/course-add.html'})
         .state('super-admin.course-edit', {url: '/course-edit/:courseId', templateUrl: 'views/super-admin/course-edit.html'})
-        .state('super-admin.role-list', {url: '/course-list', templateUrl: 'views/super-admin/role-list.html'})
-        .state('super-admin.role-detail', {url: '/course-detail/:roleId', templateUrl: 'views/super-admin/role-detail.html'})
-        .state('super-admin.role-add', {url: '/course-add', templateUrl: 'views/super-admin/role-add.html'})
-        .state('super-admin.role-edit', {url: '/course-edit/:roleId', templateUrl: 'views/super-admin/role-edit.html'})
-        .state('super-admin.permission-list', {url: '/course-list', templateUrl: 'views/super-admin/permission-list.html'})
-        .state('super-admin.permission-detail', {url: '/course-detail/:permissionId', templateUrl: 'views/super-admin/permission-detail.html'})
-        .state('super-admin.permission-add', {url: '/course-add', templateUrl: 'views/super-admin/permission-add.html'})
-        .state('super-admin.permission-edit', {url: '/course-edit/:permissionId', templateUrl: 'views/super-admin/permission-edit.html'})
+        .state('super-admin.role-list', {url: '/role-list', templateUrl: 'views/super-admin/role-list.html'})
+        .state('super-admin.role-detail', {url: '/role-detail/:roleId', templateUrl: 'views/super-admin/role-detail.html'})
+        .state('super-admin.role-add', {url: '/role-add', templateUrl: 'views/super-admin/role-add.html'})
+        .state('super-admin.role-edit', {url: '/role-edit/:roleId', templateUrl: 'views/super-admin/role-edit.html'})
+        .state('super-admin.permission-list', {url: '/permission-list', templateUrl: 'views/super-admin/permission-list.html'})
+        .state('super-admin.permission-detail', {url: '/permission-detail/:permissionId', templateUrl: 'views/super-admin/permission-detail.html'})
+        .state('super-admin.permission-add', {url: '/permission-add', templateUrl: 'views/super-admin/permission-add.html'})
+        .state('super-admin.permission-edit', {url: '/permission-edit/:permissionId', templateUrl: 'views/super-admin/permission-edit.html'})
+
+        .state('super-admin.org-tree-detail', {url: '/org-tree-detail/:orgId', templateUrl: 'views/super-admin/org-tree-detail.html'})
 
         .state('login', {url: '/login', templateUrl: 'views/login.html', controller: 'LoginCtrl'});
       $urlRouterProvider.otherwise('/login');
