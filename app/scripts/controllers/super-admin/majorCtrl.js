@@ -7,7 +7,7 @@
  * # MajorCtrl
  * Controller of the webApp
  */
-Site.controller('MajorCtrl', ['$scope', '$state', '$location', '$stateParams', '$q', 'MajorSrv', function ($scope, $state, $location, $stateParams, $q, MajorSrv) {
+Site.controller('MajorCtrl', ['$scope', '$state', '$location', '$stateParams', '$q', 'MajorSrv', 'DeptSrv', function ($scope, $state, $location, $stateParams, $q, MajorSrv, DeptSrv) {
   console.log('MajorCtrl');
 
   var majorId = $stateParams.majorId;
@@ -15,7 +15,7 @@ Site.controller('MajorCtrl', ['$scope', '$state', '$location', '$stateParams', '
   var userId = $scope.userData.id;
 
   if (path.indexOf('major-list') > 0) {
-    getAllOrgs();
+    getAllMajors();
   }
 
   //
@@ -86,7 +86,7 @@ Site.controller('MajorCtrl', ['$scope', '$state', '$location', '$stateParams', '
       });
   };
 
-  function getAllOrgs() {
+  function getAllMajors() {
     MajorSrv.getAllMajors()
       .then(function (res) {
         if (res.ack == 'success') {
@@ -101,6 +101,14 @@ Site.controller('MajorCtrl', ['$scope', '$state', '$location', '$stateParams', '
           };
         }//if
       });
-  }
+  };
+
+  DeptSrv.getAllDepts()
+    .then(function (res) {
+      if (res.ack == 'success') {
+        $scope.availableDepts = res.data;
+        $scope.selectedDept = $scope.availableDepts[0];
+      }//if
+    });
 
 }]);

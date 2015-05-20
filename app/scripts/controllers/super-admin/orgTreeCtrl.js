@@ -7,10 +7,33 @@
  * # OrgTreeCtrl
  * Controller of the webApp
  */
-Site.controller('OrgTreeCtrl', function ($scope) {
+Site.controller('OrgTreeCtrl', ['$scope', '$state', '$location', '$stateParams', '$q', 'OrganizationSrv', 'DeptSrv', 'MajorSrv', function ($scope, $state, $location, $stateParams, $q, OrganizationSrv, DeptSrv, MajorSrv) {
   console.log('OrgTreeCtrl');
 
-  $scope.buttonClick = function(event, node) {
+  var orgId = $stateParams.orgId;
+  var userId = $scope.userData.id;
+
+  //
+  if (orgId) {
+    OrganizationSrv.getOrganizationById(orgId)
+      .then(function (res) {
+        if (res.ack == 'success') {
+          var organization = res.data[0];
+          $scope.organization = organization;
+        }
+      });
+
+    DeptSrv.getAllDeptsByOrgId(orgId)
+      .then(function (res) {
+        if (res.ack == 'success') {
+          var orgDepts = res.data;
+          
+        }
+      });
+
+  }
+
+  $scope.buttonClick = function (event, node) {
     console.log(111);
     event.stopPropagation();
   };
@@ -55,5 +78,29 @@ Site.controller('OrgTreeCtrl', function ($scope) {
             ]}
         ]}
     ];
+  $scope.availableGroupStudents = [
+    {id: 1, name: "111111", code: "11111", description: "11111"},
+    {id: 2, name: "222", code: "11111", description: "11111"},
+    {id: 3, name: "333", code: "11111", description: "11111"},
+    {id: 4, name: "444", code: "11111", description: "11111"}
+  ];
 
-});
+  DeptSrv.getAllDepts()
+    .then(function (res) {
+      if (res.ack == 'success') {
+        $scope.depts = res.data;
+
+        //TODO filter already checked depts
+      }//if
+    });
+
+  MajorSrv.getAllMajors()
+    .then(function (res) {
+      if (res.ack == 'success') {
+        $scope.majors = res.data;
+
+        //TODO filter already checked majors
+      }//if
+    });
+
+}]);

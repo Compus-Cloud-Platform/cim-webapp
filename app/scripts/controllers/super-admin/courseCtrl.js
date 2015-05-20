@@ -15,7 +15,7 @@ Site.controller('CourseCtrl', ['$scope', '$state', '$location', '$stateParams', 
   var userId = $scope.userData.id;
 
   if (path.indexOf('course-list') > 0) {
-    getAllOrgs();
+    getAllCourses();
   }
 
   //
@@ -86,7 +86,7 @@ Site.controller('CourseCtrl', ['$scope', '$state', '$location', '$stateParams', 
       });
   };
 
-  function getAllOrgs() {
+  function getAllCourses() {
     CourseSrv.getAllCourses()
       .then(function (res) {
         if (res.ack == 'success') {

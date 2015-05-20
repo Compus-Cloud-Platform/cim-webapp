@@ -15,7 +15,7 @@ Site.controller('ClubCtrl', ['$scope', '$state', '$location', '$stateParams', '$
   var userId = $scope.userData.id;
 
   if (path.indexOf('club-list') > 0) {
-    getAllOrgs();
+    getAllClubs();
   }
 
   //
@@ -86,7 +86,7 @@ Site.controller('ClubCtrl', ['$scope', '$state', '$location', '$stateParams', '$
       });
   };
 
-  function getAllOrgs() {
+  function getAllClubs() {
     ClubSrv.getAllClubs()
       .then(function (res) {
         if (res.ack == 'success') {

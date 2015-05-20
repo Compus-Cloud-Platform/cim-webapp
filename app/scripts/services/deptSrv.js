@@ -59,6 +59,39 @@ Site.factory('DeptSrv', ['$http', '$filter', 'ConfigConst', function ($http, $fi
         }, function (err) {
           return err;
         });
+    },
+
+    // get all depts by org id
+    getAllDeptsByOrgId: function (orgId) {
+      return $http
+        .get(ConfigConst.urls.api + 'organization-departments/orgId/' + orgId, {headers: {}})
+        .then(function (res) {
+          return res.data;
+        }, function (err) {
+          return err;
+        });
+    },
+
+    // insert dept into one org
+    insertOneDeptToOrg: function (data) {
+      return $http
+        .post(ConfigConst.urls.api + 'organization-departments', data, {headers: {}})
+        .then(function (res) {
+          return res.data;
+        }, function (err) {
+          return err;
+        });
+    },
+
+    // delete one dept(without majors) from org
+    deleteOneDeptFromOrg: function (orgId, deptId) {
+      return $http
+        .delete(ConfigConst.urls.api + 'organization-departments/' + deptId, {headers: {}})
+        .then(function (res) {
+          return res.data;
+        }, function (err) {
+          return err;
+        });
     }
   }
 }]);

@@ -15,7 +15,7 @@ Site.controller('PermissionCtrl', ['$scope', '$state', '$location', '$stateParam
   var userId = $scope.userData.id;
 
   if (path.indexOf('permission-list') > 0) {
-    getAllOrgs();
+    getAllPermissions();
   }
 
   //
@@ -86,7 +86,7 @@ Site.controller('PermissionCtrl', ['$scope', '$state', '$location', '$stateParam
       });
   };
 
-  function getAllOrgs() {
+  function getAllPermissions() {
     PermissionSrv.getAllPermissions()
       .then(function (res) {
         if (res.ack == 'success') {

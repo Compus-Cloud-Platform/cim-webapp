@@ -59,6 +59,39 @@ Site.factory('MajorSrv', ['$http', '$filter', 'ConfigConst', function ($http, $f
         }, function (err) {
           return err;
         });
+    },
+
+    // get all majors by org-dept id
+    getAllMajorsByOrgDeptId: function (orgDeptId) {
+      return $http
+        .get(ConfigConst.urls.api + 'organizations/' + orgDeptId + '/departments', {headers: {}})
+        .then(function (res) {
+          return res.data;
+        }, function (err) {
+          return err;
+        });
+    },
+
+    // insert dept into one org
+    insertOneDeptToOrg: function (orgId, data) {
+      return $http
+        .post(ConfigConst.urls.api + 'organizations/' + orgId + '/departments', data, {headers: {}})
+        .then(function (res) {
+          return res.data;
+        }, function (err) {
+          return err;
+        });
+    },
+
+    // delete one dept(without majors) from org
+    deleteOneDeptFromOrg: function (orgId, deptId) {
+      return $http
+        .delete(ConfigConst.urls.api + 'organizations/' + orgId + '/departments/' + deptId, {headers: {}})
+        .then(function (res) {
+          return res.data;
+        }, function (err) {
+          return err;
+        });
     }
   }
 }]);

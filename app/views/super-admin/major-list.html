@@ -20,7 +20,8 @@
                             <th></th>
                             <th st-sort="name" class="col-sm-3 pointer">名字</th>
                             <th st-sort="code" class="col-sm-2 pointer">编号</th>
-                            <th st-sort="operId" class="col-sm-7 pointer">创建者</th>
+                            <th st-sort="code" class="col-sm-2 pointer">所属部门</th>
+                            <th st-sort="operId" class="col-sm-5 pointer">创建者</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -28,6 +29,7 @@
                             <td><input type="checkbox" ng-model="item.selected"/></td>
                             <td><a ui-sref="super-admin.major-detail({id:userData.id, majorId:item.id})" title="详细信息">{{item.name}}</a></td>
                             <td>{{item.code}}</td>
+                            <td>{{item.deptId}}</td>
                             <td>{{item.operId}}</td>
                         </tr>
                         </tbody>

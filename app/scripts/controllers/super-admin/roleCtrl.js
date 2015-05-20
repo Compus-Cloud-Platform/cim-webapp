@@ -15,7 +15,7 @@ Site.controller('RoleCtrl', ['$scope', '$state', '$location', '$stateParams', '$
   var userId = $scope.userData.id;
 
   if (path.indexOf('role-list') > 0) {
-    getAllOrgs();
+    getAllRoles();
   }
 
   //
@@ -86,7 +86,7 @@ Site.controller('RoleCtrl', ['$scope', '$state', '$location', '$stateParams', '$
       });
   };
 
-  function getAllOrgs() {
+  function getAllRoles() {
     RoleSrv.getAllRoles()
       .then(function (res) {
         if (res.ack == 'success') {

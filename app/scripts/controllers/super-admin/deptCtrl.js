@@ -15,7 +15,7 @@ Site.controller('DeptCtrl', ['$scope', '$state', '$location', '$stateParams', '$
   var userId = $scope.userData.id;
 
   if (path.indexOf('dept-list') > 0) {
-    getAllOrgs();
+    getAllDepts();
   }
 
   //
@@ -87,7 +87,7 @@ Site.controller('DeptCtrl', ['$scope', '$state', '$location', '$stateParams', '$
   };
 
   $scope.displayedCollection = [];
-  function getAllOrgs() {
+  function getAllDepts() {
     DeptSrv.getAllDepts()
       .then(function (res) {
         if (res.ack == 'success') {

@@ -90,6 +90,7 @@ Site.config(
         .state('super-admin.permission-edit', {url: '/permission-edit/:permissionId', templateUrl: 'views/super-admin/permission-edit.html'})
 
         .state('super-admin.org-tree-detail', {url: '/org-tree-detail/:orgId', templateUrl: 'views/super-admin/org-tree-detail.html'})
+        .state('super-admin.org-tree-add', {url: '/org-tree-add', templateUrl: 'views/super-admin/org-tree-add.html'})
 
         .state('login', {url: '/login', templateUrl: 'views/login.html', controller: 'LoginCtrl'});
       $urlRouterProvider.otherwise('/login');

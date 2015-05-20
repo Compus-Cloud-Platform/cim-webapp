@@ -1,0 +1,36 @@
+<div class="row">
+    <!-- left slide bar-->
+    <div ng-include="'views/leftbar.html'"></div>
+    <div class="mid-content col-sm-8">
+        <div ng-include="'views/notice.html'"></div>
+        <!-- To be filled part Start-->
+        <div class="common-container" data-ng-controller="OrgTreeCtrl">
+            <div class="panel panel-default no-border">
+                <div class="panel-heading">
+                    <h3 class="panel-title">更新组织结构</h3>
+                </div>
+                <div class="panel-body">
+                    <form class="form-horizontal" id="addForm">
+                        <fieldset class="col-sm-12">
+                            <select size="20" multiple ng-model="availableDepts"
+                                    ng-options="item.id as item.name for item in depts"
+                                    style="width: 40%;"></select>
+                            <select size="20" multiple ng-model="availableMajors"
+                                    ng-options="item.id as item.name for item in majors"
+                                    style="width: 40%;"></select>
+                        </fieldset>
+                        <div class="col-sm-12 col-sm-offset-2">
+                            <button type="submit" class="btn btn-primary" data-ng-click="create()">确定添加</button>
+                            <a type="button" ui-sref="super-admin.org-tree-detail({id:userData.id, orgId: 5})" data-ng-click="deleteItems()">返回</a>
+                        </div>
+                    </form>
+                </div>
+                <!-- panel -->
+            </div>
+
+        </div>
+        <!-- To be filled part End-->
+    </div>
+    <!-- right slide bar-->
+    <div ng-include="'views/rightbar.html'"></div>
+</div>
