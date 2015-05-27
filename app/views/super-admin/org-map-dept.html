@@ -1,0 +1,33 @@
+<div class="row">
+    <!-- left slide bar-->
+    <div ng-include="'views/leftbar.html'"></div>
+    <div class="mid-content col-sm-8">
+        <div ng-include="'views/notice.html'"></div>
+        <!-- To be filled part Start-->
+        <div class="common-container" data-ng-controller="OrganizationManagerCtrl">
+            <div class="panel panel-default no-border">
+                <div class="panel-heading">
+                    <h3 class="panel-title">添加组织所属部门</h3>
+                </div>
+                <div class="panel-body">
+                    <form class="form-horizontal" id="addForm">
+                        <fieldset class="col-sm-12">
+                            <select size="20" multiple ng-model="newDepts"
+                                    ng-options="item.id as item.name for item in availableDepts"
+                                    style="width: 40%;"></select>
+                        </fieldset>
+                        <div class="col-sm-12 col-sm-offset-2">
+                            <button type="submit" class="btn btn-primary" data-ng-click="addDepts()">确定添加</button>
+                            <a type="button" ui-sref="super-admin.org-map-manager({id:userData.id, orgId: orgId})">返回</a>
+                        </div>
+                    </form>
+                </div>
+                <!-- panel -->
+            </div>
+
+        </div>
+        <!-- To be filled part End-->
+    </div>
+    <!-- right slide bar-->
+    <div ng-include="'views/rightbar.html'"></div>
+</div>

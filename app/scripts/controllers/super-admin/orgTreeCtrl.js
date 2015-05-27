@@ -27,7 +27,6 @@ Site.controller('OrgTreeCtrl', ['$scope', '$state', '$location', '$stateParams',
       .then(function (res) {
         if (res.ack == 'success') {
           var orgDepts = res.data;
-          
         }
       });
 

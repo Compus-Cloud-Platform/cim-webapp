@@ -64,7 +64,7 @@ Site.factory('MajorSrv', ['$http', '$filter', 'ConfigConst', function ($http, $f
     // get all majors by org-dept id
     getAllMajorsByOrgDeptId: function (orgDeptId) {
       return $http
-        .get(ConfigConst.urls.api + 'organizations/' + orgDeptId + '/departments', {headers: {}})
+        .get(ConfigConst.urls.api + 'organization-department-majors/detp-org-id/' + orgDeptId, {headers: {}})
         .then(function (res) {
           return res.data;
         }, function (err) {
@@ -72,10 +72,10 @@ Site.factory('MajorSrv', ['$http', '$filter', 'ConfigConst', function ($http, $f
         });
     },
 
-    // insert dept into one org
-    insertOneDeptToOrg: function (orgId, data) {
+    // insert major into one org dept
+    insertOneMajorToOrgDept: function (data) {
       return $http
-        .post(ConfigConst.urls.api + 'organizations/' + orgId + '/departments', data, {headers: {}})
+        .post(ConfigConst.urls.api + 'organization-department-majors', data, {headers: {}})
         .then(function (res) {
           return res.data;
         }, function (err) {
@@ -83,10 +83,10 @@ Site.factory('MajorSrv', ['$http', '$filter', 'ConfigConst', function ($http, $f
         });
     },
 
-    // delete one dept(without majors) from org
-    deleteOneDeptFromOrg: function (orgId, deptId) {
+    // delete one major from org dept
+    deleteOneMajorFromOrgDept: function (orgDeptMajorId) {
       return $http
-        .delete(ConfigConst.urls.api + 'organizations/' + orgId + '/departments/' + deptId, {headers: {}})
+        .delete(ConfigConst.urls.api + 'organization-department-majors/' + orgDeptMajorId, {headers: {}})
         .then(function (res) {
           return res.data;
         }, function (err) {

@@ -64,7 +64,7 @@ Site.factory('DeptSrv', ['$http', '$filter', 'ConfigConst', function ($http, $fi
     // get all depts by org id
     getAllDeptsByOrgId: function (orgId) {
       return $http
-        .get(ConfigConst.urls.api + 'organization-departments/orgId/' + orgId, {headers: {}})
+        .get(ConfigConst.urls.api + 'organization-departments/org-id/' + orgId, {headers: {}})
         .then(function (res) {
           return res.data;
         }, function (err) {
@@ -84,9 +84,9 @@ Site.factory('DeptSrv', ['$http', '$filter', 'ConfigConst', function ($http, $fi
     },
 
     // delete one dept(without majors) from org
-    deleteOneDeptFromOrg: function (orgId, deptId) {
+    deleteOneDeptFromOrg: function (deptOrgId) {
       return $http
-        .delete(ConfigConst.urls.api + 'organization-departments/' + deptId, {headers: {}})
+        .delete(ConfigConst.urls.api + 'organization-departments/' + deptOrgId, {headers: {}})
         .then(function (res) {
           return res.data;
         }, function (err) {
