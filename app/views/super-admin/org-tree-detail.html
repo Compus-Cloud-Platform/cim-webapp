@@ -4,39 +4,25 @@
     <div class="mid-content col-sm-8">
         <div ng-include="'views/notice.html'"></div>
         <!-- To be filled part Start-->
-        <div class="common-container" data-ng-controller="OrgTreeCtrl">
+        <div class="common-container" data-ng-controller="OrganizationManagerCtrl">
             <div class="panel panel-default no-border">
                 <div class="panel-heading relative">
-                    <h3 class="panel-title">组织结构信息
+                    <h3 class="panel-title">
+                        <div>当前组织：{{organization.name}}</div>
                         <div class="align-right">
                             <a class="text-decoration" ui-sref="super-admin.org-list({id:userData.id})">返回列表<span class="icon-forward"></span></a>
                         </div>
                     </h3>
                 </div>
                 <div class="panel-body">
-                    <div class="stu-header">
-                        <div><span>当前组织：</span><span>XXX</span></div>
+                    <div class="col-sm-10">
+                        <treecontrol class="tree-light"
+                                     tree-model="dataTree"
+                                     options="treeOptions"
+                                     selected-node="selectedNode">
+                            {{node.name}}
+                        </treecontrol>
                     </div>
-                    <div class="stu-option text-right" style="padding-bottom: 10px;padding-right: 15px;">
-                        <a type="button" data-toggle="modal" data-target="#add" style="cursor: pointer;">新增文件夹</a>
-                        <a type="button" ui-sref="super-admin.org-tree-add({id:userData.id})" style="cursor: pointer;">选择专业</a>
-                    </div>
-                    <div class="stu-list">
-                        <div class="col-sm-10">
-                            <treecontrol class="tree-light"
-                                         tree-model="dataForTheTree"
-                                         options="treeOptions"
-                                         selected-node="selectedNode">
-                                {{node.name}}
-                                <button ng-click="buttonClick($event, node)"><span class="icon-plus"></span></button>
-                                <button ng-show="node.children.length==0" ng-click="buttonClick($event, node)"><span class="icon-minus"></span></button>
-                            </treecontrol>
-                        </div>
-                        <div class="col-sm-8">
-
-                        </div>
-                    </div>
-                    <!--  stu-list -->
                 </div>
                 <!-- panel -->
             </div>

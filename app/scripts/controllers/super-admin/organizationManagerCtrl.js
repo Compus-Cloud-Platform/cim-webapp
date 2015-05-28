@@ -177,6 +177,48 @@ Site.controller('OrganizationManagerCtrl', ['$scope', '$state', '$location', '$s
     };
   }// end org-map-major
 
+  // org-tree-detail
+  if (path.indexOf('org-tree-detail') > 0) {
+    $scope.treeOptions = {
+      nodeChildren: "children",
+      dirSelectable: false,
+      injectClasses: {
+        ul: "a1",
+        li: "a2",
+        liSelected: "a7",
+        iExpanded: "a3",
+        iCollapsed: "a4",
+        iLeaf: "a5",
+        label: "a6",
+        labelSelected: "a8"
+      }
+    };
+
+    $scope.dataTree = [];
+    DeptSrv.getAllDeptsByOrgId(orgId)
+      .then(function (depts) {
+        if (depts.ack == 'success' && depts.data.length > 0) {
+          promiseArray = [];
+          _.forEach(depts.data, function (item) {
+            promiseArray.push(MajorSrv.getAllMajorsByOrgDeptId(item.id));
+          });
+
+          $q.all(promiseArray)
+            .then(function (responseArray) {
+              if (responseArray.length == promiseArray.length) {
+                for (var i = 0; i < depts.data.length; i++) {
+                  var majors = _.pluck(responseArray[i].data, 'major');
+                  var obj = {name: depts.data[i].department.name, children: majors};
+                  $scope.dataTree.push(obj);
+                }
+              }
+            });
+        }
+      });
+
+
+  }// end org-tree-detail
+
   if (orgId) {
     OrganizationSrv.getOrganizationById(orgId)
       .then(function (res) {
