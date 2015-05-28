@@ -61,6 +61,17 @@ Site.factory('MajorSrv', ['$http', '$filter', 'ConfigConst', function ($http, $f
         });
     },
 
+    // get all majors by dept id
+    getMajorsByDeptId: function (deptId) {
+      return $http
+        .get(ConfigConst.urls.api + 'majors/dept-id/' + deptId, {headers: {}})
+        .then(function (res) {
+          return res.data;
+        }, function (err) {
+          return err;
+        });
+    },
+
     // get all majors by org-dept id
     getAllMajorsByOrgDeptId: function (orgDeptId) {
       return $http

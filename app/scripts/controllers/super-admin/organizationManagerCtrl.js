@@ -15,28 +15,9 @@ Site.controller('OrganizationManagerCtrl', ['$scope', '$state', '$location', '$s
   var userId = $scope.userData.id;
 
   $scope.orgId = orgId;
+  $scope.newDepts = undefined;
 
   if (path.indexOf('org-map-manager') > 0) {
-    //
-    if (orgId) {
-      DeptSrv.getAllDeptsByOrgId(orgId)
-        .then(function (res) {
-          if (res.ack == 'success') {
-            $scope.rowCollection = res.data;
-            $scope.orgDepts = [].concat($scope.rowCollection);
-
-            // default get first majors
-            if (res.data.length > 0) {
-              var orgDeptMajor = res.data[0];
-              MajorSrv.getAllMajorsByOrgDeptId(orgDeptMajor.id)
-                .then(function (response) {
-                  $scope.rowCollectionMajor = response.data;
-                  $scope.orgDeptMajors = [].concat($scope.rowCollectionMajor);
-                });
-            }
-          }//if
-        });
-    }
 
     $scope.checkAllMajors = function () {
       $scope.selectedAll = !$scope.selectedAll;
@@ -58,6 +39,52 @@ Site.controller('OrganizationManagerCtrl', ['$scope', '$state', '$location', '$s
           }
         })
     };
+
+    $scope.deleteDept = function (deptOrgId) {
+      MajorSrv.getAllMajorsByOrgDeptId(deptOrgId)
+        .then(function (res) {
+          if (res.ack == 'success') {
+            if (res.data.length > 0) {
+              alert('不能删除！');
+            } else {
+              DeptSrv.deleteOneDeptFromOrg(deptOrgId)
+            }
+          }
+        })
+        .then(function (res) {
+          if (res.ack == 'success') {
+            $scope.getAllDeptsByOrgId(orgId);
+          }
+        });
+    };
+
+    $scope.showMajors = function (orgDeptId) {
+      $scope.orgDeptId = orgDeptId;
+      MajorSrv.getAllMajorsByOrgDeptId(orgDeptId)
+        .then(function (res) {
+          $scope.rowCollectionMajor = res.data;
+          $scope.orgDeptMajors = [].concat($scope.rowCollectionMajor);
+        });
+    };
+
+    $scope.getAllDeptsByOrgId = function (orgId) {
+      DeptSrv.getAllDeptsByOrgId(orgId)
+        .then(function (res) {
+          if (res.ack == 'success') {
+            $scope.orgDepts = res.data;
+
+            // default get first majors
+            if (res.data.length > 0) {
+              var orgDeptMajor = res.data[0];
+              $scope.showMajors(orgDeptMajor.id);
+            }
+          }//if
+        });
+    };
+
+    if (orgId) {
+      $scope.getAllDeptsByOrgId(orgId);
+    }
 
   }// if org-map-manager > 0
 
@@ -86,7 +113,69 @@ Site.controller('OrganizationManagerCtrl', ['$scope', '$state', '$location', '$s
           });
         }
       });
+
+    $scope.addDepts = function () {
+      promiseArray = [];
+      _.forEach($scope.newDepts, function (item) {
+        var obj = {deptId: item, orgId: orgId, operId: userId};
+        promiseArray.push(DeptSrv.insertOneDeptToOrg(obj));
+      });
+      $q.all(promiseArray)
+        .then(function (responseArray) {
+          if (responseArray.length == promiseArray.length) {
+            $state.go('super-admin.org-map-manager', {id: userId, orgId: orgId});
+          }
+        });
+    };
   }
+
+  // org-map-major
+  if (path.indexOf('org-map-major') > 0) {
+
+    var orgDeptId = $stateParams.orgDeptId;
+    $scope.orgId = undefined;
+
+    var promiseArray = [];
+    DeptSrv.getDeptByOrgDeptId(orgDeptId)
+      .then(function (dept) {
+        if (dept.ack == 'success') {
+          $scope.orgId = dept.data[0].organization.id;
+          return MajorSrv.getMajorsByDeptId(dept.data[0].id);
+        }
+      })
+      .then(function (majors) {
+        MajorSrv.getAllMajorsByOrgDeptId(orgDeptId)
+          .then(function (selectedMajors) {
+            var allDeptMajors = [];
+            var allMajors = [];
+            if (selectedMajors.ack == 'success' && selectedMajors.data.length > 0) {
+              _.forEach(selectedMajors.data, function (item) {
+                allDeptMajors.push(item.major);
+              });
+            }
+            if (majors.ack == 'success' && majors.data.length > 0) {
+              allMajors = majors.data;
+            }
+            $scope.availableMajors = _.filter(allMajors, function (item) {
+              return !_.some(allDeptMajors, item)
+            });
+          });
+      });
+
+    $scope.addMajors = function () {
+      promiseArray = [];
+      _.forEach($scope.newMajors, function (item) {
+        var obj = {majorId: item, deptOrgId: orgDeptId, operId: userId};
+        promiseArray.push(MajorSrv.insertOneMajorToOrgDept(obj));
+      });
+      $q.all(promiseArray)
+        .then(function (responseArray) {
+          if (responseArray.length == promiseArray.length) {
+            $state.go('super-admin.org-map-manager', {id: userId, orgId: $scope.orgId});
+          }
+        });
+    };
+  }// end org-map-major
 
   if (orgId) {
     OrganizationSrv.getOrganizationById(orgId)

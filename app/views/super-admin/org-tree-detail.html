@@ -6,8 +6,12 @@
         <!-- To be filled part Start-->
         <div class="common-container" data-ng-controller="OrgTreeCtrl">
             <div class="panel panel-default no-border">
-                <div class="panel-heading">
-                    <h3 class="panel-title">组织结构信息</h3>
+                <div class="panel-heading relative">
+                    <h3 class="panel-title">组织结构信息
+                        <div class="align-right">
+                            <a class="text-decoration" ui-sref="super-admin.org-list({id:userData.id})">返回列表<span class="icon-forward"></span></a>
+                        </div>
+                    </h3>
                 </div>
                 <div class="panel-body">
                     <div class="stu-header">

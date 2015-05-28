@@ -61,6 +61,17 @@ Site.factory('DeptSrv', ['$http', '$filter', 'ConfigConst', function ($http, $fi
         });
     },
 
+    // get one dept by org dept id
+    getDeptByOrgDeptId: function (orgDeptId) {
+      return $http
+        .get(ConfigConst.urls.api + 'organization-departments/' + orgDeptId, {headers: {}})
+        .then(function (res) {
+          return res.data;
+        }, function (err) {
+          return err;
+        });
+    },
+
     // get all depts by org id
     getAllDeptsByOrgId: function (orgId) {
       return $http
