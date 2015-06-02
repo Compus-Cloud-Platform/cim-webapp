@@ -10,6 +10,11 @@
 Site.controller('SuperAdminHomeCtrl', function ($scope) {
   console.log('SuperAdminHomeCtrl');
 
+  if(!$scope.userData) {
+    $state.go('login');
+    return;
+  }
+
   $scope.organizations = [
     {
       "operId": 1,

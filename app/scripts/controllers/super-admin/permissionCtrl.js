@@ -10,6 +10,11 @@
 Site.controller('PermissionCtrl', ['$scope', '$state', '$location', '$stateParams', '$q', 'PermissionSrv', function ($scope, $state, $location, $stateParams, $q, PermissionSrv) {
   console.log('PermissionCtrl');
 
+  if(!$scope.userData) {
+    $state.go('login');
+    return;
+  }
+
   var permissionId = $stateParams.permissionId;
   var path = $location.path();
   var userId = $scope.userData.id;

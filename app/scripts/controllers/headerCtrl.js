@@ -7,11 +7,17 @@
  * # HeaderCtrl
  * Controller of the webApp
  */
-Site.controller('HeaderCtrl', ['$scope', 'AuthSrv', '$state', function ($scope, AuthSrv, $state) {
+Site.controller('HeaderCtrl', ['$scope', 'AuthSrv', '$state', '$cookieStore', function ($scope, AuthSrv, $state, $cookieStore) {
   console.log("HeaderCtrl");
 
   //position: teacher, superAdmin, admin, student
-  $scope.userData = {id: "1", name: "ruigao", password: "19851012", position: "superAdmin"};
+//  $scope.userData = {id: "1", name: "ruigao", password: "19851012", position: "superAdmin"};
+  $scope.userData = $cookieStore.get("user");
+
+  if(!$scope.userData) {
+    $state.go('login');
+    return;
+  }
 
   $scope.checkAuth = function () {
     console.log('test auth');
@@ -118,23 +124,23 @@ Site.controller('HeaderCtrl', ['$scope', 'AuthSrv', '$state', function ($scope, 
 
   var initLayout = function () {
     var user = $scope.userData;
-    switch (user.position) {
-      case 'teacher':
+    switch (user.positionId) {
+      case 10: //teacher
         $scope.positionDisplayed = '老师';
         $scope.positionPath = 'teacher.home';
         $scope.headerArray = teacherArray;
         break;
-      case 'student':
+      case 11: //student
         $scope.positionDisplayed = '学生';
         $scope.positionPath = 'student.home';
         $scope.headerArray = studentArray;
         break;
-      case 'admin':
+      case 9: //admin
         $scope.positionDisplayed = '管理员';
         $scope.positionPath = 'admin.home';
         $scope.headerArray = adminArray;
         break;
-      case 'superAdmin':
+      case 8: //superAdmin
         $scope.positionDisplayed = '系统管理员';
         $scope.positionPath = 'super-admin.home';
         $scope.headerArray = superAdminArray;
@@ -147,8 +153,7 @@ Site.controller('HeaderCtrl', ['$scope', 'AuthSrv', '$state', function ($scope, 
     {name: "行事历", link: "teacher.video"},
     {name: "电子字条", link: "teacher.video"},
     {name: "网络硬盘", link: "teacher.video"},
-    {name: "个人信息管理", link: "teacher.video"},
-    {name: "注销系统", link: "login"}
+    {name: "个人信息管理", link: "teacher.video"}
   ];
 
   // left slide bar
@@ -164,6 +169,16 @@ Site.controller('HeaderCtrl', ['$scope', 'AuthSrv', '$state', function ($scope, 
     {name: "网络技术", code: "12345"},
     {name: "数据机构", code: "12345"}
   ];
+
+  $scope.loginOut = function () {
+    removeUserCookie();
+    $state.go('login');
+  };
+
+  var removeUserCookie = function () {
+//    $scope.user.isLogined = false;
+    $cookieStore.remove("user");
+  };
 
   /*
    ** initialize layout

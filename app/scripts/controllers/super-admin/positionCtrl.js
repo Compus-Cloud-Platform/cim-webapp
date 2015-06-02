@@ -10,6 +10,11 @@
 Site.controller('PositionCtrl', ['$scope', '$state', '$location', '$stateParams', '$q', 'PositionSrv', function ($scope, $state, $location, $stateParams, $q, PositionSrv) {
   console.log('PositionCtrl');
 
+  if(!$scope.userData) {
+    $state.go('login');
+    return;
+  }
+
   var posId = $stateParams.posId;
   var path = $location.path();
   var userId = $scope.userData.id;

@@ -10,6 +10,11 @@
 Site.controller('OrganizationManagerCtrl', ['$scope', '$state', '$location', '$stateParams', '$q', 'OrganizationSrv', 'DeptSrv', 'MajorSrv', function ($scope, $state, $location, $stateParams, $q, OrganizationSrv, DeptSrv, MajorSrv) {
   console.log('OrganizationManagerCtrl');
 
+  if(!$scope.userData) {
+    $state.go('login');
+    return;
+  }
+
   var orgId = $stateParams.orgId;
   var path = $location.path();
   var userId = $scope.userData.id;

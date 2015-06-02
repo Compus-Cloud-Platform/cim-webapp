@@ -7,7 +7,7 @@
  * # LoginCtrl
  * Controller of the webappApp
  */
-Site.controller('LoginCtrl', ['$scope', 'AuthSrv', '$state', '$location', function ($scope, AuthSrv, $state, $location) {
+Site.controller('LoginCtrl', ['$scope', 'AuthSrv', '$state', '$location', '$cookieStore', function ($scope, AuthSrv, $state, $location, $cookieStore) {
 
   $scope.loginDisabled = true;
   $scope.userMsg = undefined;
@@ -47,31 +47,44 @@ Site.controller('LoginCtrl', ['$scope', 'AuthSrv', '$state', '$location', functi
     if($scope.userMsg=='' && $scope.passMsg=='' && $scope.codeMsg=='') {
       $scope.loginDisabled = false;
     }else{
-      $scope.loginDisabled = true;//TODO true
+      $scope.loginDisabled = false;//TODO true
     }
   };
 
   $scope.login = function () {
     AuthSrv.login($scope.form.user, $scope.form.pass)
-      .then(function (session) {
-        var userId = session.data.id;
+      .then(function (res) {
+        if(res.ack == 'success') {
+          var temp = res.data[0];
+          var user = {
+            id: temp.id,
+            loginId: temp.loginId,
+            positionId: temp.positionId,
+            name: temp.name,
+            loginPassword: temp.loginPassword
+          };
+        }else {
+          alert('error');
+          return;
+        }
 
+        storeUserCookie(user);
 
         var redirectUrl = undefined;
         if (redirectUrl) {
           $location.path(redirectUrl);
         } else {
-          switch(user.position) {
-            case 'teacher':
+          switch(user.positionId) {
+            case 10://teacher
               $state.go('teacher.home',{id: user.id});
               break;
-            case 'student':
+            case 11://student
               $state.go('student.home',{id: user.id});
               break;
-            case 'admin':
+            case 9://admin
               $state.go('admin.home',{id: user.id});
               break;
-            case 'superAdmin':
+            case 8://superAdmin
               $state.go('super-admin.home',{id: user.id});
               break;
           }
@@ -97,6 +110,11 @@ Site.controller('LoginCtrl', ['$scope', 'AuthSrv', '$state', '$location', functi
 
   $scope.forgotPassword = function () {
     //TODO
+  };
+
+  var storeUserCookie = function(user) {
+    user.isLogined = true;
+    $cookieStore.put("user", user);
   };
 
   // init

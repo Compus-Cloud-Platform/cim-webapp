@@ -10,6 +10,11 @@
 Site.controller('ClubCtrl', ['$scope', '$state', '$location', '$stateParams', '$q', 'ClubSrv', function ($scope, $state, $location, $stateParams, $q, ClubSrv) {
   console.log('ClubCtrl');
 
+  if(!$scope.userData) {
+    $state.go('login');
+    return;
+  }
+
   var clubId = $stateParams.clubId;
   var path = $location.path();
   var userId = $scope.userData.id;

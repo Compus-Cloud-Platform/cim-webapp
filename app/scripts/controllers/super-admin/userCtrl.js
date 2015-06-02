@@ -10,6 +10,11 @@
 Site.controller('UserCtrl', ['$scope', '$state', '$location', '$stateParams', '$q', 'UserSrv', function ($scope, $state, $location, $stateParams, $q, UserSrv) {
   console.log('UserCtrl');
 
+  if(!$scope.userData) {
+    $state.go('login');
+    return;
+  }
+
   var uId = $stateParams.uId;
   var path = $location.path();
   var userId = $scope.userData.id;

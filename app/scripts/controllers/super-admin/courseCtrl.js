@@ -10,6 +10,11 @@
 Site.controller('CourseCtrl', ['$scope', '$state', '$location', '$stateParams', '$q', 'CourseSrv', function ($scope, $state, $location, $stateParams, $q, CourseSrv) {
   console.log('CourseCtrl');
 
+  if(!$scope.userData) {
+    $state.go('login');
+    return;
+  }
+
   var courseId = $stateParams.courseId;
   var path = $location.path();
   var userId = $scope.userData.id;

@@ -10,6 +10,11 @@
 Site.controller('RoleCtrl', ['$scope', '$state', '$location', '$stateParams', '$q', 'RoleSrv', function ($scope, $state, $location, $stateParams, $q, RoleSrv) {
   console.log('RoleCtrl');
 
+  if(!$scope.userData) {
+    $state.go('login');
+    return;
+  }
+
   var roleId = $stateParams.roleId;
   var path = $location.path();
   var userId = $scope.userData.id;

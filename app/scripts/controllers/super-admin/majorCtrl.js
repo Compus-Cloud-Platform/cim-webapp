@@ -10,6 +10,11 @@
 Site.controller('MajorCtrl', ['$scope', '$state', '$location', '$stateParams', '$q', 'MajorSrv', 'DeptSrv', function ($scope, $state, $location, $stateParams, $q, MajorSrv, DeptSrv) {
   console.log('MajorCtrl');
 
+  if(!$scope.userData) {
+    $state.go('login');
+    return;
+  }
+
   var majorId = $stateParams.majorId;
   var path = $location.path();
   var userId = $scope.userData.id;

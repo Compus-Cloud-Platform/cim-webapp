@@ -10,6 +10,11 @@
 Site.controller('DeptCtrl', ['$scope', '$state', '$location', '$stateParams', '$q', 'DeptSrv', function ($scope, $state, $location, $stateParams, $q, DeptSrv) {
   console.log('DeptCtrl');
 
+  if(!$scope.userData) {
+    $state.go('login');
+    return;
+  }
+
   var deptId = $stateParams.deptId;
   var path = $location.path();
   var userId = $scope.userData.id;

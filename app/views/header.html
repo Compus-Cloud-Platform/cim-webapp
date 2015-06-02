@@ -31,6 +31,9 @@
                             <li role="presentation" ng-repeat="item in profile">
                                 <a role="menuitem" tabindex="-1" ui-sref="{{item.link}}">{{item.name}}</a>
                             </li>
+                            <li role="presentation">
+                                <a role="menuitem" tabindex="-1" data-ng-click="loginOut()">注销系统</a>
+                            </li>
                         </ul>
                     </li>
                 </ul>

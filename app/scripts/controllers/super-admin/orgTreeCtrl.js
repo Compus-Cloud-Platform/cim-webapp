@@ -10,6 +10,11 @@
 Site.controller('OrgTreeCtrl', ['$scope', '$state', '$location', '$stateParams', '$q', 'OrganizationSrv', 'DeptSrv', 'MajorSrv', function ($scope, $state, $location, $stateParams, $q, OrganizationSrv, DeptSrv, MajorSrv) {
   console.log('OrgTreeCtrl');
 
+  if(!$scope.userData) {
+    $state.go('login');
+    return;
+  }
+
   var orgId = $stateParams.orgId;
   var userId = $scope.userData.id;
 

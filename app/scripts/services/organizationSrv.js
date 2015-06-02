@@ -53,7 +53,7 @@ Site.factory('OrganizationSrv', ['$http', '$filter', 'ConfigConst', function ($h
     // get all organizations
     getAllOrganizations: function () {
       return $http
-        .get(ConfigConst.urls.api + 'organizations', {headers: {}})
+        .get(ConfigConst.urls.api + 'organizations', {headers: {id: 'rui.gao'}})
         .then(function (res) {
           return res.data;
         }, function (err) {
