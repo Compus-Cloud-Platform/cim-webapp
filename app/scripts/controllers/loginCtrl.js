@@ -59,7 +59,7 @@ Site.controller('LoginCtrl', ['$scope', 'AuthSrv', '$state', '$location', '$cook
           var user = {
             id: temp.id,
             loginId: temp.loginId,
-            positionId: temp.positionId,
+            positionId: 10,//TODO temp.positionId
             name: temp.name,
             loginPassword: temp.loginPassword
           };

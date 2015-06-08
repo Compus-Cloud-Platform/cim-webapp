@@ -4,7 +4,7 @@
     <div class="mid-content col-sm-8">
         <div ng-include="'views/notice.html'"></div>
         <!-- To be filled part Start-->
-        <div class="common-container" data-ng-controller="CourseManagerCtrl">
+        <div class="common-container" data-ng-controller="CourseGroupCtrl">
             <div class="panel panel-info no-border">
                 <div class="panel-heading">
                     <h3 class="panel-title">课程管理</h3>
@@ -25,7 +25,7 @@
                         <div class="col-sm-5">
                             <label>默认组学生</label>
                             <select size="15" multiple ng-model="available"
-                                    ng-options="item.name for item in availableGroupStudents"
+                                    ng-options="item.user.name for item in availableGroupStudents"
                                     style="width: 100%;"></select>
                         </div>
                         <div class="col-sm-2 opt-buttons">
@@ -45,13 +45,13 @@
                             <select class="form-control input-control" ng-model="selectedGroup"
                                     ng-change="changeSelectedGroupStudents()"
                                     ng-options="item.name for item in groupsByCourse"></select>
-                            <input ng-show="selectedGroup.id==-1" type="text" name="newGroupName"
+                            <input ng-show="selectedGroup.id==-1" type="text" name="newGroupName" ng-model="newGroupName"
                                    class="form-control input-control" placeholder="分组名字">
                         </div>
                         <div class="col-sm-5">
                             <label>所属组学生</label>
                             <select size="15" multiple ng-model="selected"
-                                    ng-options="item.name for item in selectedGroupStudents"
+                                    ng-options="item.user.name for item in selectedGroupStudents"
                                     style="width: 100%;"></select>
                         </div>
                         <div class="col-sm-12 option-bars">
@@ -82,12 +82,12 @@
                             </thead>
                             <tbody>
                             <tr ng-repeat="row in studentsByCourse">
-                                <td><input type="checkbox" ng-checked="row.checked"/></td>
+                                <td><input type="checkbox" ng-model="row.selected"/></td>
                                 <td>{{row.sitNum}}</td>
-                                <td>{{row.name}}</td>
+                                <td>{{row.user.name}}</td>
                                 <td>{{row.identity}}</td>
-                                <td>{{row.sex}}</td>
-                                <td>{{row.id}}</td>
+                                <td>{{row.user.usersExt.sex}}</td>
+                                <td>{{row.user.loginId}}</td>
                                 <td>{{row.groupId}}</td>
                                 <td>{{row.groupName}}</td>
                             </tr>

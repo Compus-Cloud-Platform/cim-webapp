@@ -59,6 +59,17 @@ Site.factory('UserSrv', ['$http', '$filter', 'ConfigConst', function ($http, $fi
         }, function (err) {
           return err;
         });
+    },
+
+    // get org users by position id
+    getOrgUsersByPositionId: function (posId, orgId) {
+      return $http
+        .get(ConfigConst.urls.api + 'users/position-id/' + posId + '/org-id/' + orgId + '/0/1000', {headers: {}})
+        .then(function (res) {
+          return res.data;
+        }, function (err) {
+          return err;
+        });
     }
   }
 }]);

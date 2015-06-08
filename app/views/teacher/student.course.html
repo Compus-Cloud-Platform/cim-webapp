@@ -1,0 +1,70 @@
+<div class="row">
+    <!-- left slide bar-->
+    <div ng-include="'views/leftbar.html'"></div>
+    <div class="mid-content col-sm-8">
+        <div ng-include="'views/notice.html'"></div>
+        <!-- To be filled part Start-->
+        <div class="common-container" data-ng-controller="CourseManagerCtrl">
+            <div class="panel panel-default no-border">
+                <div class="panel-heading">
+                    <h3 class="panel-title">学生账户信息</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="stu-header">
+                        <div><span>指导老师：</span><span>XXX</span></div>
+                        <div><span>学生人数：</span><span>20</span></div>
+                    </div>
+                    <div class="stu-option text-right">
+                        <a ui-sref="teacher.course-group({id:userData.id, teacherCourseId:teacherCourseId})">设定群组</a>
+                        <a ui-sref="teacher.student-add({id:userData.id, teacherCourseId: teacherCourseId})">新增学生</a>
+                        <!--<a ui-sref="teacher.name-edit({id:userData.id})">更改学生姓名</a>-->
+                        <a ui-sref="teacher.seat-edit({id:userData.id})">座号调整</a>
+                        <a href="javascript:void(0)">打印学生信息表</a>
+                        <a href="javascript:void(0)">导出学生账号资料（.xlsx）</a>
+                        <a ui-sref="teacher.course-manager({id:userData.id})">返回</a>
+                    </div>
+                    <div class="stu-list">
+                        <table st-table="studentsByCourse" st-safe-src="rowCollection" class="table table-striped table-hover">
+                            <thead>
+                            <tr>
+                                <th colspan="8">
+                                    <label>全局搜索:</label>
+                                    <input st-search placeholder="请输入要搜索的关键字符" class="input-sm form-control" type="search"/>
+                                </th>
+                            </tr>
+                            <tr>
+                                <th>
+                                    <input type="checkbox" ng-model="selectedAll" ng-click="checkAll()"/>
+                                    <a href="javascript:void(0)" style="padding-left: 2px;" data-ng-click="deleteItems()">删除</a>
+                                </th>
+                                <th st-sort="sitNum">座号</th>
+                                <th st-sort="getters.name">姓名</th>
+                                <th st-sort="identity">学号</th>
+                                <th st-sort="sex">性别</th>
+                                <th st-sort="id">账号</th>
+                                <th st-sort="groupId">群组编号</th>
+                                <th st-sort="groupName">组名</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr ng-repeat="row in studentsByCourse">
+                                <td><input type="checkbox" ng-model="row.selected"/></td>
+                                <td>{{row.sitNum}}</td>
+                                <td>{{row.user.name}}</td>
+                                <td>{{row.identity}}</td>
+                                <td>{{row.user.usersExt.sex}}</td>
+                                <td>{{row.user.loginId}}</td>
+                                <td>{{row.groupId}}</td>
+                                <td>{{row.groupName}}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- To be filled part End-->
+    </div>
+    <!-- right slide bar-->
+    <div ng-include="'views/rightbar.html'"></div>
+</div>
