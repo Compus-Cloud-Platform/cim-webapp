@@ -46,7 +46,7 @@ Site.config(
         .state('teacher.group-manager', {url: '/group-manager', templateUrl: 'views/teacher/group.manager.html'})
         .state('teacher.name-edit', {url: '/name-edit', templateUrl: 'views/teacher/name.edit.html'})
         .state('teacher.paper-personage', {url: '/paper-personage', templateUrl: 'views/teacher/paper.personage.html'})
-        .state('teacher.seat-edit', {url: '/seat-edit', templateUrl: 'views/teacher/seat.edit.html'})
+        .state('teacher.seat-edit', {url: '/seat-edit/:teacherCourseId', templateUrl: 'views/teacher/seat.edit.html'})
         .state('teacher.student-add', {url: '/student-add/:teacherCourseId', templateUrl: 'views/teacher/student.add.html'})
         .state('teacher.student-course', {url: '/student-course/:teacherCourseId', templateUrl: 'views/teacher/student.course.html'})
         .state('teacher.textbook-manager', {url: '/textbook-manager', templateUrl: 'views/teacher/textbook.manager.html'})

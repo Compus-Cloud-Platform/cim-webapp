@@ -1,15 +1,16 @@
-Site.factory('MajorSrv', ['$http', '$filter', 'ConfigConst', function ($http, $filter, ConfigConst) {
+Site.factory('MajorSrv', ['$http', '$filter', 'ConfigConst', '$cookieStore', function ($http, $filter, ConfigConst, $cookieStore) {
   "use strict";
 
   // get the existing session so we have the security token
 //  var existingSession = LocalSessionService.getValidSession();
+  var user = $cookieStore.get('user');
 
   return {
 
     // insert major
     insertMajor: function (data) {
       return $http
-        .post(ConfigConst.urls.api + 'majors', data, {headers: {}})
+        .post(ConfigConst.urls.api + 'majors', data, {headers: {id: user.loginId}})
         .then(function (res) {
           return res.data;
         }, function (err) {
@@ -20,7 +21,7 @@ Site.factory('MajorSrv', ['$http', '$filter', 'ConfigConst', function ($http, $f
     // update major
     updateMajor: function (majorId, data) {
       return $http
-        .put(ConfigConst.urls.api + 'majors/' + majorId, data, {headers: {}})
+        .put(ConfigConst.urls.api + 'majors/' + majorId, data, {headers: {id: user.loginId}})
         .then(function (res) {
           return res.data;
         }, function (err) {
@@ -31,7 +32,7 @@ Site.factory('MajorSrv', ['$http', '$filter', 'ConfigConst', function ($http, $f
     // delete major
     deleteMajor: function (majorId) {
       return $http
-        .delete(ConfigConst.urls.api + 'majors/' + majorId, {headers: {}})
+        .delete(ConfigConst.urls.api + 'majors/' + majorId, {headers: {id: user.loginId}})
         .then(function (res) {
           return res.data;
         }, function (err) {
@@ -42,7 +43,7 @@ Site.factory('MajorSrv', ['$http', '$filter', 'ConfigConst', function ($http, $f
     // get one major by id
     getMajorById: function (majorId) {
       return $http
-        .get(ConfigConst.urls.api + 'majors/' + majorId, {headers: {}})
+        .get(ConfigConst.urls.api + 'majors/' + majorId, {headers: {id: user.loginId}})
         .then(function (res) {
           return res.data;
         }, function (err) {
@@ -53,7 +54,7 @@ Site.factory('MajorSrv', ['$http', '$filter', 'ConfigConst', function ($http, $f
     // get all majors
     getAllMajors: function () {
       return $http
-        .get(ConfigConst.urls.api + 'majors', {headers: {}})
+        .get(ConfigConst.urls.api + 'majors', {headers: {id: user.loginId}})
         .then(function (res) {
           return res.data;
         }, function (err) {
@@ -64,7 +65,7 @@ Site.factory('MajorSrv', ['$http', '$filter', 'ConfigConst', function ($http, $f
     // get all majors by dept id
     getMajorsByDeptId: function (deptId) {
       return $http
-        .get(ConfigConst.urls.api + 'majors/dept-id/' + deptId, {headers: {}})
+        .get(ConfigConst.urls.api + 'majors/dept-id/' + deptId, {headers: {id: user.loginId}})
         .then(function (res) {
           return res.data;
         }, function (err) {
@@ -75,7 +76,7 @@ Site.factory('MajorSrv', ['$http', '$filter', 'ConfigConst', function ($http, $f
     // get all majors by org-dept id
     getAllMajorsByOrgDeptId: function (orgDeptId) {
       return $http
-        .get(ConfigConst.urls.api + 'organization-department-majors/detp-org-id/' + orgDeptId, {headers: {}})
+        .get(ConfigConst.urls.api + 'organization-department-majors/detp-org-id/' + orgDeptId, {headers: {id: user.loginId}})
         .then(function (res) {
           return res.data;
         }, function (err) {
@@ -86,7 +87,7 @@ Site.factory('MajorSrv', ['$http', '$filter', 'ConfigConst', function ($http, $f
     // insert major into one org dept
     insertOneMajorToOrgDept: function (data) {
       return $http
-        .post(ConfigConst.urls.api + 'organization-department-majors', data, {headers: {}})
+        .post(ConfigConst.urls.api + 'organization-department-majors', data, {headers: {id: user.loginId}})
         .then(function (res) {
           return res.data;
         }, function (err) {
@@ -97,7 +98,7 @@ Site.factory('MajorSrv', ['$http', '$filter', 'ConfigConst', function ($http, $f
     // delete one major from org dept
     deleteOneMajorFromOrgDept: function (orgDeptMajorId) {
       return $http
-        .delete(ConfigConst.urls.api + 'organization-department-majors/' + orgDeptMajorId, {headers: {}})
+        .delete(ConfigConst.urls.api + 'organization-department-majors/' + orgDeptMajorId, {headers: {id: user.loginId}})
         .then(function (res) {
           return res.data;
         }, function (err) {

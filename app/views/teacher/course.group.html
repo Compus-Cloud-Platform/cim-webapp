@@ -45,7 +45,7 @@
                             <select class="form-control input-control" ng-model="selectedGroup"
                                     ng-change="changeSelectedGroupStudents()"
                                     ng-options="item.name for item in groupsByCourse"></select>
-                            <input ng-show="selectedGroup.id==-1" type="text" name="newGroupName" ng-model="newGroupName"
+                            <input ng-show="selectedGroup.id==0" type="text" name="newGroupName" ng-model="newGroupName"
                                    class="form-control input-control" placeholder="分组名字">
                         </div>
                         <div class="col-sm-5">
@@ -62,14 +62,14 @@
                                         ng-options="item.name for item in groupsByCourse"></select>
                             </div>
                             <div class="col-lg-2">
-                                <button type="submit" class="btn btn-primary btn-sm">保存</button>
+                                <button type="submit" class="btn btn-primary btn-sm" data-ng-click="changeGroup()">确定</button>
                             </div>
                         </div>
                         <table st-table="rowCollection" class="table table-striped">
                             <thead>
                             <tr>
                                 <th>
-                                    <input type="checkbox" ng-model="checkedAll" ng-click="checkAll()"/>
+                                    <input type="checkbox" ng-model="checkedAll" data-ng-click="checkAll()"/>
                                 </th>
                                 <th st-sort="getters.sitNum">座号</th>
                                 <th st-sort="name">姓名</th>
@@ -88,8 +88,8 @@
                                 <td>{{row.identity}}</td>
                                 <td>{{row.user.usersExt.sex}}</td>
                                 <td>{{row.user.loginId}}</td>
-                                <td>{{row.groupId}}</td>
-                                <td>{{row.groupName}}</td>
+                                <td>{{row.teachercoursegroup.id}}</td>
+                                <td>{{row.teachercoursegroup.name}}</td>
                             </tr>
                             </tbody>
                         </table>

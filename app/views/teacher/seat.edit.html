@@ -25,17 +25,18 @@
                                     </label>
                                     <label class="col-sm-12">
                                         <span class="col-sm-5">姓名:</span>
-                                        <span class="col-sm-7">{{item.name}}</span>
+                                        <span class="col-sm-7">{{item.user.name}}</span>
                                     </label>
                                     <label class="col-sm-12">
                                         <span class="col-sm-5">新座号:</span>
-                                        <span class="col-sm-7"><input type="text" class="form-control input-control"
+                                        <span class="col-sm-7">
+                                            <input type="text" class="form-control input-control" ng-model="item.newSeat"
                                                                       value="{{item.sitNum}}"></span>
                                     </label>
                                 </div>
 
                                 <div class="col-lg-10 text-center">
-                                    <button type="submit" class="btn btn-primary">保存</button>
+                                    <button type="submit" class="btn btn-primary" data-ng-click="updateSeat()">保存</button>
                                 </div>
                             </fieldset>
                         </form>

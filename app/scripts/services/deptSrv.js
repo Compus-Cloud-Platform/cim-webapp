@@ -1,15 +1,16 @@
-Site.factory('DeptSrv', ['$http', '$filter', 'ConfigConst', function ($http, $filter, ConfigConst) {
+Site.factory('DeptSrv', ['$http', '$filter', 'ConfigConst', '$cookieStore', function ($http, $filter, ConfigConst,$cookieStore) {
   "use strict";
 
   // get the existing session so we have the security token
 //  var existingSession = LocalSessionService.getValidSession();
+  var user = $cookieStore.get('user');
 
   return {
 
     // insert dept
     insertDept: function (data) {
       return $http
-        .post(ConfigConst.urls.api + 'departments', data, {headers: {}})
+        .post(ConfigConst.urls.api + 'departments', data, {headers: {id: user.loginId}})
         .then(function (res) {
           return res.data;
         }, function (err) {
@@ -20,7 +21,7 @@ Site.factory('DeptSrv', ['$http', '$filter', 'ConfigConst', function ($http, $fi
     // update dept
     updateDept: function (deptId, data) {
       return $http
-        .put(ConfigConst.urls.api + 'departments/' + deptId, data, {headers: {}})
+        .put(ConfigConst.urls.api + 'departments/' + deptId, data, {headers: {id: user.loginId}})
         .then(function (res) {
           return res.data;
         }, function (err) {
@@ -31,7 +32,7 @@ Site.factory('DeptSrv', ['$http', '$filter', 'ConfigConst', function ($http, $fi
     // delete dept
     deleteDept: function (deptId) {
       return $http
-        .delete(ConfigConst.urls.api + 'departments/' + deptId, {headers: {}})
+        .delete(ConfigConst.urls.api + 'departments/' + deptId, {headers: {id: user.loginId}})
         .then(function (res) {
           return res.data;
         }, function (err) {
@@ -42,7 +43,7 @@ Site.factory('DeptSrv', ['$http', '$filter', 'ConfigConst', function ($http, $fi
     // get one dept by id
     getDeptById: function (deptId) {
       return $http
-        .get(ConfigConst.urls.api + 'departments/' + deptId, {headers: {}})
+        .get(ConfigConst.urls.api + 'departments/' + deptId, {headers: {id: user.loginId}})
         .then(function (res) {
           return res.data;
         }, function (err) {
@@ -53,7 +54,7 @@ Site.factory('DeptSrv', ['$http', '$filter', 'ConfigConst', function ($http, $fi
     // get all depts
     getAllDepts: function () {
       return $http
-        .get(ConfigConst.urls.api + 'departments', {headers: {}})
+        .get(ConfigConst.urls.api + 'departments', {headers: {id: user.loginId}})
         .then(function (res) {
           return res.data;
         }, function (err) {
@@ -64,7 +65,7 @@ Site.factory('DeptSrv', ['$http', '$filter', 'ConfigConst', function ($http, $fi
     // get one dept by org dept id
     getDeptByOrgDeptId: function (orgDeptId) {
       return $http
-        .get(ConfigConst.urls.api + 'organization-departments/' + orgDeptId, {headers: {}})
+        .get(ConfigConst.urls.api + 'organization-departments/' + orgDeptId, {headers: {id: user.loginId}})
         .then(function (res) {
           return res.data;
         }, function (err) {
@@ -75,7 +76,7 @@ Site.factory('DeptSrv', ['$http', '$filter', 'ConfigConst', function ($http, $fi
     // get all depts by org id
     getAllDeptsByOrgId: function (orgId) {
       return $http
-        .get(ConfigConst.urls.api + 'organization-departments/org-id/' + orgId, {headers: {}})
+        .get(ConfigConst.urls.api + 'organization-departments/org-id/' + orgId, {headers: {id: user.loginId}})
         .then(function (res) {
           return res.data;
         }, function (err) {
@@ -86,7 +87,7 @@ Site.factory('DeptSrv', ['$http', '$filter', 'ConfigConst', function ($http, $fi
     // insert dept into one org
     insertOneDeptToOrg: function (data) {
       return $http
-        .post(ConfigConst.urls.api + 'organization-departments', data, {headers: {}})
+        .post(ConfigConst.urls.api + 'organization-departments', data, {headers: {id: user.loginId}})
         .then(function (res) {
           return res.data;
         }, function (err) {
@@ -97,7 +98,7 @@ Site.factory('DeptSrv', ['$http', '$filter', 'ConfigConst', function ($http, $fi
     // delete one dept(without majors) from org
     deleteOneDeptFromOrg: function (deptOrgId) {
       return $http
-        .delete(ConfigConst.urls.api + 'organization-departments/' + deptOrgId, {headers: {}})
+        .delete(ConfigConst.urls.api + 'organization-departments/' + deptOrgId, {headers: {id: user.loginId}})
         .then(function (res) {
           return res.data;
         }, function (err) {

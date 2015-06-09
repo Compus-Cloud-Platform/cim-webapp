@@ -1,15 +1,16 @@
-Site.factory('OrganizationSrv', ['$http', '$filter', 'ConfigConst', function ($http, $filter, ConfigConst) {
+Site.factory('OrganizationSrv', ['$http', '$filter', 'ConfigConst', '$cookieStore', function ($http, $filter, ConfigConst, $cookieStore) {
   "use strict";
 
   // get the existing session so we have the security token
 //  var existingSession = LocalSessionService.getValidSession();
+  var user = $cookieStore.get('user');
 
   return {
 
     // insert organization
     insertOrganization: function (data) {
       return $http
-        .post(ConfigConst.urls.api + 'organizations', data, {headers: {}})
+        .post(ConfigConst.urls.api + 'organizations', data, {headers: {id: user.loginId}})
         .then(function (res) {
           return res.data;
         }, function (err) {
@@ -20,7 +21,7 @@ Site.factory('OrganizationSrv', ['$http', '$filter', 'ConfigConst', function ($h
     // update organization
     updateOrganization: function (orgId, data) {
       return $http
-        .put(ConfigConst.urls.api + 'organizations/' + orgId, data, {headers: {}})
+        .put(ConfigConst.urls.api + 'organizations/' + orgId, data, {headers: {id: user.loginId}})
         .then(function (res) {
           return res.data;
         }, function (err) {
@@ -31,7 +32,7 @@ Site.factory('OrganizationSrv', ['$http', '$filter', 'ConfigConst', function ($h
     // delete organization
     deleteOrganization: function (orgId) {
       return $http
-        .delete(ConfigConst.urls.api + 'organizations/' + orgId, {headers: {}})
+        .delete(ConfigConst.urls.api + 'organizations/' + orgId, {headers: {id: user.loginId}})
         .then(function (res) {
           return res.data;
         }, function (err) {
@@ -42,7 +43,7 @@ Site.factory('OrganizationSrv', ['$http', '$filter', 'ConfigConst', function ($h
     // get one organization by id
     getOrganizationById: function (orgId) {
       return $http
-        .get(ConfigConst.urls.api + 'organizations/' + orgId, {headers: {}})
+        .get(ConfigConst.urls.api + 'organizations/' + orgId, {headers: {id: user.loginId}})
         .then(function (res) {
           return res.data;
         }, function (err) {
@@ -53,7 +54,7 @@ Site.factory('OrganizationSrv', ['$http', '$filter', 'ConfigConst', function ($h
     // get all organizations
     getAllOrganizations: function () {
       return $http
-        .get(ConfigConst.urls.api + 'organizations', {headers: {id: 'rui.gao'}})
+        .get(ConfigConst.urls.api + 'organizations', {headers: {id: user.loginId}})
         .then(function (res) {
           return res.data;
         }, function (err) {
