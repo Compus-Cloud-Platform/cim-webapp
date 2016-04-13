@@ -14,7 +14,7 @@ Running `grunt test` will run the unit tests with karma.
 
 Refer to: http://yeoman.io/codelab.html
 
-Step By Step:
+Step By Step:  
 1. install nodejs environment, refer to: https://nodejs.org/download/  
 2. under cim-webapp folder, run node server.js  
 3. input the url: http://localhost:8078/#/admin/SG0822888  
